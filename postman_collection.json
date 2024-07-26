@@ -1,0 +1,243 @@
+{
+  "info": {
+    "name": "landManagement",
+    "description": "Land Ownership Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "/api/land/addSurveyor",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"surveyorAddress\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/addSurveyor",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "addSurveyor"]
+        },
+        "description": "Add surveyor"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/addNotary",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"notaryAddress\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/addNotary",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "addNotary"]
+        },
+        "description": "Add notary"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/addLandOwner",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"landOwnerAddress\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/addLandOwner",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "addLandOwner"]
+        },
+        "description": "Add land owner"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/registerLand",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"registrant\": \"\",\n  \"location\": \"\",\n  \"area\": 0.0,\n  \"detailsHash\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/registerLand",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "registerLand"]
+        },
+        "description": "Register land"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/transferOwnership",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"landId\": 0,\n  \"newOwner\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/transferOwnership",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "transferOwnership"]
+        },
+        "description": "Transfer ownership"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/getTransactionHistory",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"landId\": 0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/getTransactionHistory",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "getTransactionHistory"]
+        },
+        "description": "Get transaction history"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/verifyFileHash",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"landId\": 0,\n  \"fileHash\": \"\",\n  \"fileType\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/verifyFileHash",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "verifyFileHash"]
+        },
+        "description": "Verify file hash"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/generateProofOfOwnership",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"owner\": \"\",\n  \"landId\": 0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/generateProofOfOwnership",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "generateProofOfOwnership"]
+        },
+        "description": "Generate proof of ownership"
+      },
+      "response": []
+    },
+    {
+      "name": "/api/land/verifyProofOfOwnership",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"landId\": 0,\n  \"proof\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/verifyProofOfOwnership",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api", "land", "verifyProofOfOwnership"]
+        },
+        "description": "Verify proof of ownership"
+      },
+      "response": []
+    }
+  ]
+}
