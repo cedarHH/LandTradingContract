@@ -1,0 +1,128 @@
+syntax = "v1"
+
+info(
+    title: "land"
+    desc: "land api"
+    author: "xuesong huang"
+)
+
+type (
+    AddSurveyorReq {
+        SurveyorAddress string `json:"surveyorAddress"`
+    }
+    AddSurveyorResp {
+        Code    int        `json:"code"`
+        Msg     string     `json:"msg"`
+    }
+)
+
+type (
+    AddNotaryReq {
+        NotaryAddress string `json:"notaryAddress"`
+    }
+    AddNotaryResp {
+        Code    int        `json:"code"`
+        Msg     string     `json:"msg"`
+    }
+)
+
+type (
+    AddLandOwnerReq {
+        LandOwnerAddress string `json:"landOwnerAddress"`
+    }
+    AddLandOwnerResp {
+        Code    int        `json:"code"`
+        Msg     string     `json:"msg"`
+    }
+)
+
+type (
+    RegisterLandData {
+        LandId      uint64      `json:"landId"`
+    }
+
+    RegisterLandReq {
+        Registrant  string      `json:"registrant"`
+        Location    string      `json:"location"`
+        Area        float32     `json:"area"`
+        DetailsHash string      `json:"detailsHash"`
+    }
+
+    RegisterLandResp {
+        Code    int                 `json:"code"`
+        Data    RegisterLandData    `json:"data"`
+        Msg     string              `json:"msg"`
+    }
+)
+
+type (
+    TransferOwnershipReq {
+        LandId      uint64      `json:"landId"`
+        newOwner    string      `json:newOwner`
+    }
+
+    TransferOwnershipResp {
+        Code    int                 `json:"code"`
+        Msg     string              `json:"msg"`
+    }
+)
+
+type (
+    History {
+        Seller      string      `json:"seller"`
+        Buyer       string      `json:"buyer"`
+    }
+
+    GetTransactionHistoryReq {
+        LandId      uint64      `json:"landId"`
+    }
+
+    GetTransactionHistoryResp {
+        Code    int                 `json:"code"`
+        Data    []History           `json:"Data"`
+        Msg     string              `json:"msg"`
+    }
+)
+
+type (
+    VerifyData {
+        IsTampered  bool        `json:"isTampered"`
+    }
+    VerifyFileHashReq {
+        LandId      uint64      `json:"landId"`
+        FileHash    string      `json:"fileHash"`
+        FileType    string      `json:"fileType"`
+    }
+    VerifyFileHashResp {
+        Code    int                 `json:"code"`
+        Data    VerifyData                `json:"Data"`
+        Msg     string              `json:"msg"`
+    }
+)
+
+type (
+    GenerateProofOfOwnershipReq {
+        Owner       string      `json:"owner"`
+        LandId      uint64      `json:"landId"`
+    }
+    GenerateProofOfOwnershipResp {
+        Code    int                 `json:"code"`
+        Proof   string              `json:"proof"`
+        Msg     string              `json:"msg"`
+    }
+)
+
+type (
+    VerifyOwnershipData {
+        IsOwner  bool        `json:"isOwner"`
+    }
+    VerifyProofOfOwnershipReq {
+        LandId      uint64      `json:"landId"`
+        Proof   string              `json:"proof"`
+    }
+    VerifyProofOfOwnershipResp {
+        Code    int                 `json:"code"`
+        Data    VerifyOwnershipData `json:"Data"`
+        Msg     string              `json:"msg"`
+    }
+)
