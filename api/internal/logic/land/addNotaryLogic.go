@@ -33,5 +33,8 @@ func (l *AddNotaryLogic) AddNotary(req *types.AddNotaryReq) (
 	}
 
 	log.Printf("Transaction hash: %s", tx.Hash().Hex())
-	return
+	return &types.AddNotaryResp{
+		Code: 0,
+		Msg:  "add notary success",
+	}, nil
 }
