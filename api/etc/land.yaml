@@ -1,3 +1,11 @@
 Name: land
 Host: 0.0.0.0
 Port: 8888
+
+DynamoDBConf:
+  Region: ap-southeast-2
+  TableName: land
+
+S3Conf:
+  Region: ap-southeast-2
+  Bucket: landdetails

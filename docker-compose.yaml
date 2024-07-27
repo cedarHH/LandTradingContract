@@ -1,9 +1,39 @@
 version: '3.8'
 
 services:
+  ganache:
+    image: trufflesuite/ganache
+    ports:
+      - "8545:8545"
+    command:
+      - "--host"
+      - "0.0.0.0"
+      - "--account"
+      - "0x0c83f93cbb0319008b0baa269550feb9f74eee8f34f4b425d14fe7b9be076062,100000000000000000000"
+      - "--account"
+      - "0x8ee3e5d837e0a2b3c646cbb119d3182c139eaed1af72911bb382b5392a4e9626,100000000000000000000"
+      - "--account"
+      - "0x35f6cf404e2f8b77ad61f00341d8fa6ed8b0cf2d823040865f981518c3b78d4a,100000000000000000000"
+      - "--account"
+      - "0x88c9821f5ff14a7f11efb2dc6cc15ec6e27557d2b7d1d7471fc0f5e5f44af144,100000000000000000000"
+      - "--account"
+      - "0x7b5f16dbb0b00f2e1a6b7e6b2fa9a9aace72b5b4a53ff77b8b77e8ba669826bb,100000000000000000000"
+      - "--account"
+      - "0xa5b8827a2c4917a5b37e2f04f9d6d35e580f02c02c8f1a0d90c8ef71e7b8fc5c,100000000000000000000"
+      - "--account"
+      - "0x33f4167f4b1734b7d7c9a1b0e4c68d84ebd8e7c7ea90d5e8f5fa7e2e3e1c5b99,100000000000000000000"
+      - "--account"
+      - "0x4d7b4868b5dbf8f1c7aeb123f9b38c0d21b5e37f812e6b5f8f5d4f6b6f6d4e4d,100000000000000000000"
+
   landtradingcontract:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8888:8888"
+    depends_on:
+      - ganache
+    environment:
+      - GANACHE_URL=http://ganache:8545
+      - PRIVATE_KEY=0c83f93cbb0319008b0baa269550feb9f74eee8f34f4b425d14fe7b9be076062
+    entrypoint: ["sh", "-c", "sleep 1 && /usr/local/bin/land -f ./api/etc/land.yaml"]

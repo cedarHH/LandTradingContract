@@ -25,6 +25,5 @@ func NewAddLandOwnerLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AddL
 
 func (l *AddLandOwnerLogic) AddLandOwner(req *types.AddLandOwnerReq) (resp *types.AddLandOwnerResp, err error) {
 	// todo: add your logic here and delete this line
-
 	return
 }

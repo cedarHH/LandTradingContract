@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-
 	"github.com/cedarHH/LandTradingContract/api/internal/config"
 	"github.com/cedarHH/LandTradingContract/api/internal/handler"
 	"github.com/cedarHH/LandTradingContract/api/internal/svc"
