@@ -26,7 +26,7 @@ func NewAddNotaryLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AddNota
 func (l *AddNotaryLogic) AddNotary(req *types.AddNotaryReq) (
 	resp *types.AddNotaryResp, err error) {
 
-	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.NotaryAddress)
+	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.SenderKey)
 	tx, err := l.svcCtx.Conn.AddNotary(auth, common.HexToAddress(req.NotaryAddress))
 	if err != nil {
 		log.Fatalf("Failed to call AddNotary: %v", err)
