@@ -32,6 +32,7 @@ type (
     RegisterUserReq {
         senderkey     string        `json:"senderkey"`
         UserAddress   string        `json:"userAddress"`
+        UserName      string        `json:"userName"`
     }
 
     RegisterUserResp {

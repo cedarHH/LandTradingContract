@@ -687,12 +687,16 @@
         },
         "userAddress": {
           "type": "string"
+        },
+        "userName": {
+          "type": "string"
         }
       },
       "title": "RegisterUserReq",
       "required": [
         "senderkey",
-        "userAddress"
+        "userAddress",
+        "userName"
       ]
     },
     "RegisterUserResp": {
