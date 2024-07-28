@@ -6,7 +6,7 @@
   },
   "item": [
     {
-      "name": "/api/land/addSurveyor",
+      "name": "/addSurveyor",
       "request": {
         "method": "POST",
         "header": [
@@ -18,21 +18,21 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"surveyorAddress\": \"\"\n}"
+          "raw": "{\n  \"senderKey\": \"\",\n  \"surveyorAddress\": \"\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/addSurveyor",
+          "raw": "http://localhost:8888/addSurveyor",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "addSurveyor"]
+          "path": ["addSurveyor"]
         },
         "description": "Add surveyor"
       },
       "response": []
     },
     {
-      "name": "/api/land/addNotary",
+      "name": "/addNotary",
       "request": {
         "method": "POST",
         "header": [
@@ -44,21 +44,21 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"notaryAddress\": \"\"\n}"
+          "raw": "{\n  \"senderKey\": \"\",\n  \"notaryAddress\": \"\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/addNotary",
+          "raw": "http://localhost:8888/addNotary",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "addNotary"]
+          "path": ["addNotary"]
         },
         "description": "Add notary"
       },
       "response": []
     },
     {
-      "name": "/api/land/addLandOwner",
+      "name": "/registerUser",
       "request": {
         "method": "POST",
         "header": [
@@ -70,21 +70,21 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"landOwnerAddress\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"userAddress\": \"\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/addLandOwner",
+          "raw": "http://localhost:8888/registerUser",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "addLandOwner"]
+          "path": ["registerUser"]
         },
-        "description": "Add land owner"
+        "description": "Register user"
       },
       "response": []
     },
     {
-      "name": "/api/land/registerLand",
+      "name": "/transferContractOwnership",
       "request": {
         "method": "POST",
         "header": [
@@ -96,21 +96,69 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"registrant\": \"\",\n  \"location\": \"\",\n  \"area\": 0.0,\n  \"detailsHash\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"newOwner\": \"\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/registerLand",
+          "raw": "http://localhost:8888/transferContractOwnership",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "registerLand"]
+          "path": ["transferContractOwnership"]
+        },
+        "description": "Transfer contract ownership"
+      },
+      "response": []
+    },
+    {
+      "name": "/getUuid",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8888/getUuid",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["getUuid"]
+        },
+        "description": "Get UUID"
+      },
+      "response": []
+    },
+    {
+      "name": "/registerLand",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"location\": \"\",\n  \"details\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/registerLand",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["registerLand"]
         },
         "description": "Register land"
       },
       "response": []
     },
     {
-      "name": "/api/land/transferOwnership",
+      "name": "/surveyLand",
       "request": {
         "method": "POST",
         "header": [
@@ -122,21 +170,151 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"landId\": 0,\n  \"newOwner\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"area\": \"\",\n  \"report\": \"\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/transferOwnership",
+          "raw": "http://localhost:8888/surveyLand",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "transferOwnership"]
+          "path": ["surveyLand"]
+        },
+        "description": "Survey land"
+      },
+      "response": []
+    },
+    {
+      "name": "/GetPresignedUrl",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fileName\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/GetPresignedUrl",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["GetPresignedUrl"]
+        },
+        "description": "Get presigned URL"
+      },
+      "response": []
+    },
+    {
+      "name": "/verifyLand",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"isVerify\": false,\n  \"document\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/verifyLand",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["verifyLand"]
+        },
+        "description": "Verify land"
+      },
+      "response": []
+    },
+    {
+      "name": "/queryUserInfo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"senderkey\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/queryUserInfo",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["queryUserInfo"]
+        },
+        "description": "Query user info"
+      },
+      "response": []
+    },
+    {
+      "name": "/queryLand",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/queryLand",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["queryLand"]
+        },
+        "description": "Query land"
+      },
+      "response": []
+    },
+    {
+      "name": "/transferOwnership",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"address_to\": \"\",\n  \"TransactionId\": 0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/transferOwnership",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["transferOwnership"]
         },
         "description": "Transfer ownership"
       },
       "response": []
     },
     {
-      "name": "/api/land/getTransactionHistory",
+      "name": "/getTransactionDetails",
       "request": {
         "method": "POST",
         "header": [
@@ -148,21 +326,21 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"landId\": 0\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"TransactionId\": 0\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/getTransactionHistory",
+          "raw": "http://localhost:8888/getTransactionDetails",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "getTransactionHistory"]
+          "path": ["getTransactionDetails"]
         },
-        "description": "Get transaction history"
+        "description": "Get transaction details"
       },
       "response": []
     },
     {
-      "name": "/api/land/verifyFileHash",
+      "name": "/getLandTransactionHistory",
       "request": {
         "method": "POST",
         "header": [
@@ -174,21 +352,47 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"landId\": 0,\n  \"fileHash\": \"\",\n  \"fileType\": \"\"\n}"
+          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": 0\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/verifyFileHash",
+          "raw": "http://localhost:8888/getLandTransactionHistory",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "verifyFileHash"]
+          "path": ["getLandTransactionHistory"]
+        },
+        "description": "Get land transaction history"
+      },
+      "response": []
+    },
+    {
+      "name": "/verifyFileHash",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": 0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/verifyFileHash",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["verifyFileHash"]
         },
         "description": "Verify file hash"
       },
       "response": []
     },
     {
-      "name": "/api/land/generateProofOfOwnership",
+      "name": "/generateProofOfOwnership",
       "request": {
         "method": "POST",
         "header": [
@@ -203,18 +407,18 @@
           "raw": "{\n  \"owner\": \"\",\n  \"landId\": 0\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/generateProofOfOwnership",
+          "raw": "http://localhost:8888/generateProofOfOwnership",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "generateProofOfOwnership"]
+          "path": ["generateProofOfOwnership"]
         },
         "description": "Generate proof of ownership"
       },
       "response": []
     },
     {
-      "name": "/api/land/verifyProofOfOwnership",
+      "name": "/verifyProofOfOwnership",
       "request": {
         "method": "POST",
         "header": [
@@ -229,11 +433,11 @@
           "raw": "{\n  \"landId\": 0,\n  \"proof\": \"\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8888/api/land/verifyProofOfOwnership",
+          "raw": "http://localhost:8888/verifyProofOfOwnership",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["api", "land", "verifyProofOfOwnership"]
+          "path": ["verifyProofOfOwnership"]
         },
         "description": "Verify proof of ownership"
       },
