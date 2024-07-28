@@ -21,6 +21,7 @@ type ServiceContext struct {
 	EthClient   *ethclient.Client
 	Instance    *contract.Contract
 	Conn        *contract.Contract
+	OracleKey   string
 	AccountAuth *accountAuth.AccountAuth
 	LandModel   database.LandModel
 	LandBucket  objectStorage.IS3Model
@@ -54,7 +55,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	auth := accAuth.GetAccountAuth(privateKey)
 
 	oracleAddress := common.HexToAddress(os.Getenv("ORACLE_ADDRESS"))
-
+	oracleKey := os.Getenv("ORACLE_KEY")
 	address, tx, instance, err := contract.DeployContract(auth, client, oracleAddress)
 	if err != nil {
 		log.Fatalf("Failed to deploy contract: %v", err)
@@ -73,6 +74,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 		EthClient:   client,
 		Instance:    instance,
 		Conn:        conn,
+		OracleKey:   oracleKey,
 		AccountAuth: accAuth,
 		LandModel:   landModel,
 		LandBucket:  landBucket,

@@ -2,6 +2,7 @@ package land
 
 import (
 	"context"
+	"fmt"
 	"github.com/cedarHH/LandTradingContract/api/internal/svc"
 	"github.com/cedarHH/LandTradingContract/api/internal/tool"
 	"github.com/cedarHH/LandTradingContract/api/internal/types"
@@ -30,19 +31,19 @@ func (l *RegisterLandLogic) RegisterLand(
 
 	download, err := l.svcCtx.LandBucket.Download(l.ctx, req.Details)
 	if err != nil {
-		log.Fatalf("Failed to download file: %v", err)
+		return nil, fmt.Errorf("failed to download file: %v", err)
 	}
 
 	fileHash, err := tool.ComputeFileHash(download)
 	if err != nil {
-		log.Fatalf("Failed to compute file hash: %v", err)
+		return nil, fmt.Errorf("failed to compute file hash: %v", err)
 	}
 
 	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.Senderkey)
 	tx, err := l.svcCtx.Conn.RegisterLand(
 		auth, req.LandId, req.Location, fileHash)
 	if err != nil {
-		log.Fatalf("Failed to call register land: %v", err)
+		return nil, fmt.Errorf("failed to call register land: %v", err)
 	}
 
 	log.Printf("Transaction hash: %s", tx.Hash().Hex())

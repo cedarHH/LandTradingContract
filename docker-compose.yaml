@@ -37,4 +37,5 @@ services:
       - GANACHE_URL=http://ganache:8545
       - PRIVATE_KEY=0c83f93cbb0319008b0baa269550feb9f74eee8f34f4b425d14fe7b9be076062
       - ORACLE_ADDRESS=33471100303A7802442973BF10486dfa1dB645E8
+      - ORACLE_KEY=8ee3e5d837e0a2b3c646cbb119d3182c139eaed1af72911bb382b5392a4e9626
     entrypoint: ["sh", "-c", "sleep 1 && /usr/local/bin/land -f ./api/etc/land.yaml"]

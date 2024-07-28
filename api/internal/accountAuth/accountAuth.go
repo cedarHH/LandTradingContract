@@ -51,7 +51,7 @@ func (l *AccountAuth) GetAccountAuth(privateKeyAddress string) *bind.TransactOpt
 	}
 	auth.Nonce = big.NewInt(int64(nonce))
 	auth.Value = big.NewInt(0)
-	auth.GasLimit = uint64(3000000)
+	auth.GasLimit = uint64(6000000)
 	gasPrice, err := l.ethClient.SuggestGasPrice(context.Background())
 	if err != nil {
 		panic(err)

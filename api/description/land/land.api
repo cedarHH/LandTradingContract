@@ -76,9 +76,8 @@ type (
 
 type (
     SurveyLandReq {
-        senderkey    string      `json:"senderkey"`
         LandId       string `json:"landId"`
-        Area     string  `json:"area"`
+        Area     int64  `json:"area"`
         Report      string `json:"report"`
     }
 
@@ -101,7 +100,6 @@ type (
 
 type (
     VerifyLandReq {
-        senderkey    string      `json:"senderkey"`
         LandId       string `json:"landId"`
         IsVerify     bool    `json:"isVerify"`
         Document      string `json:"document"`
@@ -136,6 +134,7 @@ type (
         Owner       string      `json:"owner"`
         Location    string      `json:"location"`
         Area        int64       `json:"area"`
+        IsVerified  bool        `json:"isVerified"`
         Details     string      `json:"details"`
         Report      string      `json:"report"`
         Document    string      `json:"document"`

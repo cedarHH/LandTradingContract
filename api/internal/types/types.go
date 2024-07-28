@@ -38,12 +38,13 @@ type GetUuidResp struct {
 }
 
 type LandDetail struct {
-	Owner    string `json:"owner"`
-	Location string `json:"location"`
-	Area     int64  `json:"area"`
-	Details  string `json:"details"`
-	Report   string `json:"report"`
-	Document string `json:"document"`
+	Owner      string `json:"owner"`
+	Location   string `json:"location"`
+	Area       int64  `json:"area"`
+	IsVerified bool   `json:"isVerified"`
+	Details    string `json:"details"`
+	Report     string `json:"report"`
+	Document   string `json:"document"`
 }
 
 type LandHistory struct {
@@ -78,10 +79,9 @@ type RegisterUserResp struct {
 }
 
 type SurveyLandReq struct {
-	Senderkey string `json:"senderkey"`
-	LandId    string `json:"landId"`
-	Area      string `json:"area"`
-	Report    string `json:"report"`
+	LandId string `json:"landId"`
+	Area   int64  `json:"area"`
+	Report string `json:"report"`
 }
 
 type SurveyLandResp struct {
@@ -117,10 +117,9 @@ type VerifyData struct {
 }
 
 type VerifyLandReq struct {
-	Senderkey string `json:"senderkey"`
-	LandId    string `json:"landId"`
-	IsVerify  bool   `json:"isVerify"`
-	Document  string `json:"document"`
+	LandId   string `json:"landId"`
+	IsVerify bool   `json:"isVerify"`
+	Document string `json:"document"`
 }
 
 type VerifyLandResp struct {
