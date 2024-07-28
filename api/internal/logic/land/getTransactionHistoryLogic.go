@@ -25,6 +25,17 @@ func NewGetTransactionHistoryLogic(ctx context.Context, svcCtx *svc.ServiceConte
 
 func (l *GetTransactionHistoryLogic) GetTransactionHistory(req *types.GetTransactionHistoryReq) (resp *types.GetTransactionHistoryResp, err error) {
 	// todo: add your logic here and delete this line
+	landID := big.NewInt(int64(req.LandID))
 
+    transactionIDs, err := l.svcCtx.Conn.GetTransactionHistory(nil, landID)
+    if err != nil {
+        log.Fatalf("Failed to get transaction history: %v", err)
+    }
+
+    return &types.GetTransactionHistoryResp{
+        Code:           0,
+        Msg:            "Transaction history retrieved successfully",
+        TransactionIDs: respTransactionIDs,
+    }, nil
 	return
 }
