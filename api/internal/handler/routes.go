@@ -14,55 +14,86 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 	server.AddRoutes(
 		[]rest.Route{
 			{
-				//
 				Method:  http.MethodPost,
-				Path:    "/addLandOwner",
-				Handler: land.AddLandOwnerHandler(serverCtx),
+				Path:    "/GetPresignedUrl",
+				Handler: land.GetPresignedUrlHandler(serverCtx),
 			},
 			{
-				//
 				Method:  http.MethodPost,
 				Path:    "/addNotary",
 				Handler: land.AddNotaryHandler(serverCtx),
 			},
 			{
-				//
 				Method:  http.MethodPost,
 				Path:    "/addSurveyor",
 				Handler: land.AddSurveyorHandler(serverCtx),
 			},
 			{
-				//
 				Method:  http.MethodPost,
 				Path:    "/generateProofOfOwnership",
 				Handler: land.GenerateProofOfOwnershipHandler(serverCtx),
 			},
 			{
-				//
 				Method:  http.MethodPost,
-				Path:    "/getTransactionHistory",
-				Handler: land.GetTransactionHistoryHandler(serverCtx),
+				Path:    "/getLandTransactionHistory",
+				Handler: land.GetLandTransactionHistoryHandler(serverCtx),
 			},
 			{
-				//
+				Method:  http.MethodPost,
+				Path:    "/getTransactionDetails",
+				Handler: land.GetTransactionDetailsHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/getUuid",
+				Handler: land.GetUuidHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/queryLand",
+				Handler: land.QueryLandHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/queryUserInfo",
+				Handler: land.QueryUserInfoHandler(serverCtx),
+			},
+			{
 				Method:  http.MethodPost,
 				Path:    "/registerLand",
 				Handler: land.RegisterLandHandler(serverCtx),
 			},
 			{
-				//
+				Method:  http.MethodPost,
+				Path:    "/registerUser",
+				Handler: land.RegisterUserHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/surveyLand",
+				Handler: land.SurveyLandHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/transferContractOwnership",
+				Handler: land.TransferContractOwnershipHandler(serverCtx),
+			},
+			{
 				Method:  http.MethodPost,
 				Path:    "/transferOwnership",
 				Handler: land.TransferOwnershipHandler(serverCtx),
 			},
 			{
-				//
 				Method:  http.MethodPost,
 				Path:    "/verifyFileHash",
 				Handler: land.VerifyFileHashHandler(serverCtx),
 			},
 			{
-				//
+				Method:  http.MethodPost,
+				Path:    "/verifyLand",
+				Handler: land.VerifyLandHandler(serverCtx),
+			},
+			{
 				Method:  http.MethodPost,
 				Path:    "/verifyProofOfOwnership",
 				Handler: land.VerifyProofOfOwnershipHandler(serverCtx),

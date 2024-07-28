@@ -9,16 +9,16 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
-func GetTransactionHistoryHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func TransferContractOwnershipHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.GetTransactionHistoryReq
+		var req types.TransferContractOwnershipReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
 
-		l := land.NewGetTransactionHistoryLogic(r.Context(), svcCtx)
-		resp, err := l.GetTransactionHistory(&req)
+		l := land.NewTransferContractOwnershipLogic(r.Context(), svcCtx)
+		resp, err := l.TransferContractOwnership(&req)
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {

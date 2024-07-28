@@ -53,7 +53,9 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	privateKey := os.Getenv("PRIVATE_KEY")
 	auth := accAuth.GetAccountAuth(privateKey)
 
-	address, tx, instance, err := contract.DeployContract(auth, client)
+	oracleAddress := common.HexToAddress(os.Getenv("ORACLE_ADDRESS"))
+
+	address, tx, instance, err := contract.DeployContract(auth, client, oracleAddress)
 	if err != nil {
 		log.Fatalf("Failed to deploy contract: %v", err)
 	}

@@ -8,7 +8,7 @@ docker-compose up --build -d
 docker-compose down --rmi all
 ```
 
-- To deply contract
+- To deploy contract
 ```shell
 solc --optimize --abi ./smartContract/LandTransaction.sol -o build
 solc --optimize --bin ./smartContract/LandTransaction.sol -o build

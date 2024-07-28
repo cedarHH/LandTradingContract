@@ -9,21 +9,21 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type RegisterLandLogic struct {
+type GetLandTransactionHistoryLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewRegisterLandLogic(ctx context.Context, svcCtx *svc.ServiceContext) *RegisterLandLogic {
-	return &RegisterLandLogic{
+func NewGetLandTransactionHistoryLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetLandTransactionHistoryLogic {
+	return &GetLandTransactionHistoryLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *RegisterLandLogic) RegisterLand(req *types.RegisterLandReq) (resp *types.RegisterLandResp, err error) {
+func (l *GetLandTransactionHistoryLogic) GetLandTransactionHistory(req *types.GetLandTransactionHistoryReq) (resp *types.GetLandTransactionHistoryResp, err error) {
 	// todo: add your logic here and delete this line
 
 	return

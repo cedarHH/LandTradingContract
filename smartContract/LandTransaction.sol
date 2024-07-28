@@ -3,8 +3,10 @@ pragma solidity ^0.8.0;
 import './LandRegistry.sol';
 // 土地交易智能合约
 contract LandTransaction is LandRegistry{
-    
-    
+
+    constructor(address _oracle) LandRegistry(_oracle) {
+    }
+
     struct Transaction {
          uint256 landId;   
          address from;
@@ -30,12 +32,13 @@ contract LandTransaction is LandRegistry{
          require(lands[_landId].isVerified, "this land is not Verified");
          // 接收者必须存在
          require(userMapping[_to].isVaild, "toUser is not exists");
+
          userMapping[_to].landIdList.push(_landId);
          _removeLandsId(_landId);
-         
+
          userMapping[_to].transactionIdList.push(_transactionId);
          userMapping[msg.sender].transactionIdList.push(_transactionId);
-         
+
          transactions[_transactionId] = Transaction(_landId, msg.sender, _to, block.timestamp);
          emit TransactionRecorded(_transactionId, _landId, msg.sender, _to, block.timestamp);
          transactionCounter++;

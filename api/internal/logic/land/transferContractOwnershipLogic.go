@@ -9,21 +9,21 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type RegisterLandLogic struct {
+type TransferContractOwnershipLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewRegisterLandLogic(ctx context.Context, svcCtx *svc.ServiceContext) *RegisterLandLogic {
-	return &RegisterLandLogic{
+func NewTransferContractOwnershipLogic(ctx context.Context, svcCtx *svc.ServiceContext) *TransferContractOwnershipLogic {
+	return &TransferContractOwnershipLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *RegisterLandLogic) RegisterLand(req *types.RegisterLandReq) (resp *types.RegisterLandResp, err error) {
+func (l *TransferContractOwnershipLogic) TransferContractOwnership(req *types.TransferContractOwnershipReq) (resp *types.TransferContractOwnershipResp, err error) {
 	// todo: add your logic here and delete this line
 
 	return

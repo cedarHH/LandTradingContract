@@ -9,16 +9,16 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
-func AddLandOwnerHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func GetTransactionDetailsHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.AddLandOwnerReq
+		var req types.GetTransactionDetailsReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
 
-		l := land.NewAddLandOwnerLogic(r.Context(), svcCtx)
-		resp, err := l.AddLandOwner(&req)
+		l := land.NewGetTransactionDetailsLogic(r.Context(), svcCtx)
+		resp, err := l.GetTransactionDetails(&req)
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {

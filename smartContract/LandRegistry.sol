@@ -4,6 +4,9 @@ import './Ownable.sol';
 // 土地注册智能合约
 contract LandRegistry is Ownable{
 
+    constructor(address _oracle) Ownable(_oracle) {
+    }
+
     // 存储注册用户，使用映射以用户地址为键，注册状态为值
     mapping(address => User) public userMapping;
     // 存储土地信息，使用映射以土地ID为键，土地结构为值
@@ -77,9 +80,10 @@ contract LandRegistry is Ownable{
 
 
     // 注册土地，只有注册用户可以调用
-    function registerLand(uint256 _landId, string memory _location) public onlyRegistered {
+    function registerLand(uint256 _landId, string memory _location, string memory _detailsHash) public onlyRegistered {
         require(!lands[_landId].isVaild, "land is exists");
         lands[_landId] = Land(msg.sender, _location, 0, false, "", "", "", true);
+        lands[_landId].detailsHash = _detailsHash;
         userMapping[msg.sender].landIdList.push(_landId);
         emit LandRegistered(_landId, msg.sender, _location);
         landCount++;
@@ -87,22 +91,23 @@ contract LandRegistry is Ownable{
 
 
     // 测量人员测量土地后传入土地面积
-    function LandSurveyingArea(uint256 _landId, uint256 _area) public onlySurveyors {
+    function LandSurveyingArea(uint256 _landId, uint256 _area, string memory _reportHash) public onlySurveyors {
         require(lands[_landId].isVaild, "land is not exists");
+        require(msg.sender == oracle, 'Only oracle can call');
         lands[_landId].area = _area;
+        lands[_landId].reportHash = _reportHash;
         emit LandSurveying(_landId, _area, msg.sender, block.timestamp);
     }
 
 
     // 土地公证人员校验土地信息
-    function verifyLand(uint256 _landId, string memory _detailsHash, string memory _reportHash, string memory _documentsHash, bool _isVerified) 
+    function verifyLand(uint256 _landId, string memory _documentsHash, bool _isVerified)
     public onlyNotaries {
         require(lands[_landId].isVaild, "land is not exists");
-        lands[_landId].detailsHash = _detailsHash;
-        lands[_landId].reportHash = _reportHash;
+        require(msg.sender == oracle, 'Only oracle can call');
         lands[_landId].documentsHash = _documentsHash;
         lands[_landId].isVerified = _isVerified;
-        emit LandVerified(_landId, _detailsHash,_reportHash,_documentsHash,_isVerified, msg.sender, block.timestamp);
+        emit LandVerified(_landId, lands[_landId].detailsHash,lands[_landId].reportHash,_documentsHash,_isVerified, msg.sender, block.timestamp);
     }
 
     // 查询土地信息，任何人都可以调用

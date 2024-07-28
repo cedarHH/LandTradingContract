@@ -8,6 +8,7 @@ info(
 
 type (
     AddSurveyorReq {
+        SenderKey     string `json:"senderKey"`
         SurveyorAddress string `json:"surveyorAddress"`
     }
     AddSurveyorResp {
@@ -18,6 +19,7 @@ type (
 
 type (
     AddNotaryReq {
+        SenderKey     string `json:"senderKey"`
         NotaryAddress string `json:"notaryAddress"`
     }
     AddNotaryResp {
@@ -27,59 +29,179 @@ type (
 )
 
 type (
-    AddLandOwnerReq {
-        LandOwnerAddress string `json:"landOwnerAddress"`
+    RegisterUserReq {
+        senderkey     string        `json:"senderkey"`
+        UserAddress   string        `json:"userAddress"`
     }
-    AddLandOwnerResp {
-        Code    int        `json:"code"`
-        Msg     string     `json:"msg"`
+
+    RegisterUserResp {
+        Code int    `json:"code"`
+        Msg  string `json:"msg"`
     }
 )
 
 type (
-    RegisterLandData {
-        LandId      uint64      `json:"landId"`
+    TransferContractOwnershipReq {
+        senderkey     string        `json:"senderkey"`
+        newOwner      string        `json:"newOwner"`
     }
+    TransferContractOwnershipResp {
+        Code int    `json:"code"`
+        Msg  string `json:"msg"`
+    }
+)
 
+type (
+    GetUuidResp {
+        Code int    `json:"code"`
+        Uuid int64 `json:"uuid"`
+        Msg  string `json:"msg"`
+    }
+)
+
+type (
     RegisterLandReq {
-        Registrant  string      `json:"registrant"`
-        Location    string      `json:"location"`
-        Area        float32     `json:"area"`
-        DetailsHash string      `json:"detailsHash"`
+        senderkey    string      `json:"senderkey"`
+        LandId       uint64 `json:"landId"`
+        location     string  `json:"location"`
+        Details      string `json:"details"`
     }
 
     RegisterLandResp {
+        Code int    `json:"code"`
+        Msg  string `json:"msg"`
+    }
+)
+
+type (
+    SurveyLandReq {
+        senderkey    string      `json:"senderkey"`
+        LandId       uint64 `json:"landId"`
+        Area     string  `json:"area"`
+        Report      string `json:"report"`
+    }
+
+    SurveyLandResp {
+        Code int    `json:"code"`
+        Msg  string `json:"msg"`
+    }
+)
+
+type (
+    GetPresignedUrlReq {
+        fileName    string `json:"fileName"`
+    }
+    GetPresignedUrlResp {
+        Code int    `json:"code"`
+        Url  string `json:"url"`
+        Msg  string `json:"msg"`
+    }
+)
+
+type (
+    VerifyLandReq {
+        senderkey    string      `json:"senderkey"`
+        LandId       uint64 `json:"landId"`
+        IsVerify     bool    `json:"isVerify"`
+        Document      string `json:"document"`
+    }
+
+    VerifyLandResp {
+        Code int    `json:"code"`
+        Msg  string `json:"msg"`
+    }
+)
+
+type (
+    UserDetail {
+        Username            string      `json:"username"`
+        LandIdList          []int64     `json:"landIdList"`
+        TransactionIdList   []int64     `json:"transactionIdList"`
+    }
+
+    queryUserInfoReq {
+        senderkey     string      `json:"senderkey"`
+    }
+
+    queryUserInfoResp {
         Code    int                 `json:"code"`
-        Data    RegisterLandData    `json:"data"`
+        Data    UserDetail          `json:"data"`
         Msg     string              `json:"msg"`
     }
 )
 
 type (
-    TransferOwnershipReq {
-        LandId      uint64      `json:"landId"`
-        newOwner    string      `json:newOwner`
+    LandDetail {
+        Owner       string      `json:"owner"`
+        Location    string      `json:"location"`
+        Area        int64       `json:"area"`
+        Details     string      `json:"details"`
+        Report      string      `json:"report"`
+        Document    string      `json:"document"`
+    }
+    queryLandReq {
+        senderkey     string      `json:"senderkey"`
+        LandId      uint64     `json:"landId"`
     }
 
-    TransferOwnershipResp {
+    queryLandResp {
+        Code    int                 `json:"code"`
+        Data    LandDetail          `json:"data"`
+        Msg     string              `json:"msg"`
+    }
+)
+
+type (
+    transferOwnershipReq {
+        senderkey     string      `json:"senderkey"`
+        LandId      uint64     `json:"landId"`
+        address_to   string      `json:"address_to"`
+        TransactionId      uint64     `json:"TransactionId"`
+    }
+
+    transferOwnershipResp {
         Code    int                 `json:"code"`
         Msg     string              `json:"msg"`
     }
 )
 
 type (
-    History {
-        Seller      string      `json:"seller"`
-        Buyer       string      `json:"buyer"`
+    TransactionDetail  {
+        LandId    uint64    `json:"landId"`
+        From      string    `json:"from"`
+        To        string    `json:"to"`
+        Timestamp uint64    `json:"timestamp"`
+    }
+    
+    getTransactionDetailsReq {
+        senderkey     string      `json:"senderkey"`
+        TransactionId      uint64     `json:"TransactionId"`
     }
 
-    GetTransactionHistoryReq {
-        LandId      uint64      `json:"landId"`
-    }
-
-    GetTransactionHistoryResp {
+    getTransactionDetailsResp {
         Code    int                 `json:"code"`
-        Data    []History           `json:"Data"`
+        Data    TransactionDetail   `json:"data"`
+        Msg     string              `json:"msg"`
+    }
+)
+
+
+type (
+    LandHistory {
+        Owner         string    `json:"owner"`
+        Location      string    `json:"location"`
+        Area          int64     `json:"area"`
+        IsVerified    bool      `json:"isVerified"`
+        IsVaild       bool      `json:"isVaild"`
+    }
+    getLandTransactionHistoryReq {
+        senderKey     string     `json:"senderKey"`
+        LandId        uint64     `json:"landId"`
+    }
+
+    getLandTransactionHistoryResp {
+        Code    int                 `json:"code"`
+        Data    LandHistory         `json:"data"`
         Msg     string              `json:"msg"`
     }
 )
@@ -88,12 +210,11 @@ type (
     VerifyData {
         IsTampered  bool        `json:"isTampered"`
     }
-    VerifyFileHashReq {
+    verifyFileHashReq {
+        senderKey     string     `json:"senderKey"`
         LandId      uint64      `json:"landId"`
-        FileHash    string      `json:"fileHash"`
-        FileType    string      `json:"fileType"`
     }
-    VerifyFileHashResp {
+    verifyFileHashResp {
         Code    int                 `json:"code"`
         Data    VerifyData                `json:"Data"`
         Msg     string              `json:"msg"`
@@ -101,11 +222,11 @@ type (
 )
 
 type (
-    GenerateProofOfOwnershipReq {
+    generateProofOfOwnershipReq {
         Owner       string      `json:"owner"`
         LandId      uint64      `json:"landId"`
     }
-    GenerateProofOfOwnershipResp {
+    generateProofOfOwnershipResp {
         Code    int                 `json:"code"`
         Proof   string              `json:"proof"`
         Msg     string              `json:"msg"`
@@ -116,11 +237,11 @@ type (
     VerifyOwnershipData {
         IsOwner  bool        `json:"isOwner"`
     }
-    VerifyProofOfOwnershipReq {
+    verifyProofOfOwnershipReq {
         LandId      uint64      `json:"landId"`
         Proof   string              `json:"proof"`
     }
-    VerifyProofOfOwnershipResp {
+    verifyProofOfOwnershipResp {
         Code    int                 `json:"code"`
         Data    VerifyOwnershipData `json:"Data"`
         Msg     string              `json:"msg"`

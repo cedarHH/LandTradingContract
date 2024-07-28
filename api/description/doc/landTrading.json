@@ -1,0 +1,1226 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "landTrading",
+    "description": "landTrading",
+    "version": "v1"
+  },
+  "host": "localhost:8888",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/land/GetPresignedUrl": {
+      "post": {
+        "operationId": "GetPresignedUrl",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetPresignedUrlResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPresignedUrlReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/addNotary": {
+      "post": {
+        "operationId": "addNotary",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AddNotaryResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddNotaryReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/addSurveyor": {
+      "post": {
+        "operationId": "addSurveyor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AddSurveyorResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddSurveyorReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/generateProofOfOwnership": {
+      "post": {
+        "operationId": "generateProofOfOwnership",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/generateProofOfOwnershipResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/generateProofOfOwnershipReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/getLandTransactionHistory": {
+      "post": {
+        "operationId": "getLandTransactionHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/getLandTransactionHistoryResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getLandTransactionHistoryReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/getTransactionDetails": {
+      "post": {
+        "operationId": "getTransactionDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/getTransactionDetailsResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getTransactionDetailsReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/getUuid": {
+      "post": {
+        "operationId": "getUuid",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetUuidResp"
+            }
+          }
+        },
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/queryLand": {
+      "post": {
+        "operationId": "queryLand",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/queryLandResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/queryLandReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/queryUserInfo": {
+      "post": {
+        "operationId": "queryUserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/queryUserInfoResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/queryUserInfoReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/registerLand": {
+      "post": {
+        "operationId": "registerLand",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RegisterLandResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterLandReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/registerUser": {
+      "post": {
+        "operationId": "registerUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RegisterUserResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterUserReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/surveyLand": {
+      "post": {
+        "operationId": "surveyLand",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/SurveyLandResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SurveyLandReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/transferContractOwnership": {
+      "post": {
+        "operationId": "transferContractOwnership",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/TransferContractOwnershipResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransferContractOwnershipReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/transferOwnership": {
+      "post": {
+        "operationId": "transferOwnership",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/transferOwnershipResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/transferOwnershipReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/verifyFileHash": {
+      "post": {
+        "operationId": "verifyFileHash",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/verifyFileHashResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/verifyFileHashReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/verifyLand": {
+      "post": {
+        "operationId": "verifyLand",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/VerifyLandResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VerifyLandReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    },
+    "/api/land/verifyProofOfOwnership": {
+      "post": {
+        "operationId": "verifyProofOfOwnership",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/verifyProofOfOwnershipResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/verifyProofOfOwnershipReq"
+            }
+          }
+        ],
+        "tags": [
+          "land"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AddNotaryReq": {
+      "type": "object",
+      "properties": {
+        "senderKey": {
+          "type": "string"
+        },
+        "notaryAddress": {
+          "type": "string"
+        }
+      },
+      "title": "AddNotaryReq",
+      "required": [
+        "senderKey",
+        "notaryAddress"
+      ]
+    },
+    "AddNotaryResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "AddNotaryResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "AddSurveyorReq": {
+      "type": "object",
+      "properties": {
+        "senderKey": {
+          "type": "string"
+        },
+        "surveyorAddress": {
+          "type": "string"
+        }
+      },
+      "title": "AddSurveyorReq",
+      "required": [
+        "senderKey",
+        "surveyorAddress"
+      ]
+    },
+    "AddSurveyorResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "AddSurveyorResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "GetPresignedUrlReq": {
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string"
+        }
+      },
+      "title": "GetPresignedUrlReq",
+      "required": [
+        "fileName"
+      ]
+    },
+    "GetPresignedUrlResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "url": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "GetPresignedUrlResp",
+      "required": [
+        "code",
+        "url",
+        "msg"
+      ]
+    },
+    "GetUuidResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uuid": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "GetUuidResp",
+      "required": [
+        "code",
+        "uuid",
+        "msg"
+      ]
+    },
+    "LandDetail": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "area": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "details": {
+          "type": "string"
+        },
+        "report": {
+          "type": "string"
+        },
+        "document": {
+          "type": "string"
+        }
+      },
+      "title": "LandDetail",
+      "required": [
+        "owner",
+        "location",
+        "area",
+        "details",
+        "report",
+        "document"
+      ]
+    },
+    "LandHistory": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "area": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isVerified": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "isVaild": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "LandHistory",
+      "required": [
+        "owner",
+        "location",
+        "area",
+        "isVerified",
+        "isVaild"
+      ]
+    },
+    "RegisterLandReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "location": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        }
+      },
+      "title": "RegisterLandReq",
+      "required": [
+        "senderkey",
+        "landId",
+        "location",
+        "details"
+      ]
+    },
+    "RegisterLandResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "RegisterLandResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "RegisterUserReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "userAddress": {
+          "type": "string"
+        }
+      },
+      "title": "RegisterUserReq",
+      "required": [
+        "senderkey",
+        "userAddress"
+      ]
+    },
+    "RegisterUserResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "RegisterUserResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "SurveyLandReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "area": {
+          "type": "string"
+        },
+        "report": {
+          "type": "string"
+        }
+      },
+      "title": "SurveyLandReq",
+      "required": [
+        "senderkey",
+        "landId",
+        "area",
+        "report"
+      ]
+    },
+    "SurveyLandResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "SurveyLandResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "TransactionDetail": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "TransactionDetail",
+      "required": [
+        "landId",
+        "from",
+        "to",
+        "timestamp"
+      ]
+    },
+    "TransferContractOwnershipReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "newOwner": {
+          "type": "string"
+        }
+      },
+      "title": "TransferContractOwnershipReq",
+      "required": [
+        "senderkey",
+        "newOwner"
+      ]
+    },
+    "TransferContractOwnershipResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "TransferContractOwnershipResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "UserDetail": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "landIdList": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "transactionIdList": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "title": "UserDetail",
+      "required": [
+        "username",
+        "landIdList",
+        "transactionIdList"
+      ]
+    },
+    "VerifyData": {
+      "type": "object",
+      "properties": {
+        "isTampered": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "VerifyData",
+      "required": [
+        "isTampered"
+      ]
+    },
+    "VerifyLandReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isVerify": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "document": {
+          "type": "string"
+        }
+      },
+      "title": "VerifyLandReq",
+      "required": [
+        "senderkey",
+        "landId",
+        "isVerify",
+        "document"
+      ]
+    },
+    "VerifyLandResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "VerifyLandResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "VerifyOwnershipData": {
+      "type": "object",
+      "properties": {
+        "isOwner": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "VerifyOwnershipData",
+      "required": [
+        "isOwner"
+      ]
+    },
+    "generateProofOfOwnershipReq": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "generateProofOfOwnershipReq",
+      "required": [
+        "owner",
+        "landId"
+      ]
+    },
+    "generateProofOfOwnershipResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "proof": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "generateProofOfOwnershipResp",
+      "required": [
+        "code",
+        "proof",
+        "msg"
+      ]
+    },
+    "getLandTransactionHistoryReq": {
+      "type": "object",
+      "properties": {
+        "senderKey": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "getLandTransactionHistoryReq",
+      "required": [
+        "senderKey",
+        "landId"
+      ]
+    },
+    "getLandTransactionHistoryResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/LandHistory"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "getLandTransactionHistoryResp",
+      "required": [
+        "code",
+        "data",
+        "msg"
+      ]
+    },
+    "getTransactionDetailsReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "TransactionId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "getTransactionDetailsReq",
+      "required": [
+        "senderkey",
+        "TransactionId"
+      ]
+    },
+    "getTransactionDetailsResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/TransactionDetail"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "getTransactionDetailsResp",
+      "required": [
+        "code",
+        "data",
+        "msg"
+      ]
+    },
+    "queryLandReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "queryLandReq",
+      "required": [
+        "senderkey",
+        "landId"
+      ]
+    },
+    "queryLandResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/LandDetail"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "queryLandResp",
+      "required": [
+        "code",
+        "data",
+        "msg"
+      ]
+    },
+    "queryUserInfoReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        }
+      },
+      "title": "queryUserInfoReq",
+      "required": [
+        "senderkey"
+      ]
+    },
+    "queryUserInfoResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/UserDetail"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "queryUserInfoResp",
+      "required": [
+        "code",
+        "data",
+        "msg"
+      ]
+    },
+    "transferOwnershipReq": {
+      "type": "object",
+      "properties": {
+        "senderkey": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "address_to": {
+          "type": "string"
+        },
+        "TransactionId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "transferOwnershipReq",
+      "required": [
+        "senderkey",
+        "landId",
+        "address_to",
+        "TransactionId"
+      ]
+    },
+    "transferOwnershipResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "transferOwnershipResp",
+      "required": [
+        "code",
+        "msg"
+      ]
+    },
+    "verifyFileHashReq": {
+      "type": "object",
+      "properties": {
+        "senderKey": {
+          "type": "string"
+        },
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "verifyFileHashReq",
+      "required": [
+        "senderKey",
+        "landId"
+      ]
+    },
+    "verifyFileHashResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Data": {
+          "$ref": "#/definitions/VerifyData"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "verifyFileHashResp",
+      "required": [
+        "code",
+        "Data",
+        "msg"
+      ]
+    },
+    "verifyProofOfOwnershipReq": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "proof": {
+          "type": "string"
+        }
+      },
+      "title": "verifyProofOfOwnershipReq",
+      "required": [
+        "landId",
+        "proof"
+      ]
+    },
+    "verifyProofOfOwnershipResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Data": {
+          "$ref": "#/definitions/VerifyOwnershipData"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "verifyProofOfOwnershipResp",
+      "required": [
+        "code",
+        "Data",
+        "msg"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
