@@ -44,23 +44,24 @@ type LandRegistryLand struct {
 // LandRegistryUser is an auto generated low-level Go binding around an user-defined struct.
 type LandRegistryUser struct {
 	Username          string
-	LandIdList        []*big.Int
+	LandIdList        []string
 	TransactionIdList []*big.Int
 	IsVaild           bool
 }
 
 // LandTransactionTransaction is an auto generated low-level Go binding around an user-defined struct.
 type LandTransactionTransaction struct {
-	LandId    *big.Int
+	LandId    string
 	From      common.Address
 	To        common.Address
 	Timestamp *big.Int
+	IsVaild   bool
 }
 
 // ContractMetaData contains all meta data concerning the Contract contract.
 var ContractMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"landId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"location\",\"type\":\"string\"}],\"name\":\"LandRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"landId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"area\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"surveyorsAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestam\",\"type\":\"uint256\"}],\"name\":\"LandSurveying\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"landId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"detailsHash\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reportHash\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"documentsHash\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"notariesAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"LandVerified\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"transactionId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"landId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"TransactionRecorded\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_landId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_area\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_reportHash\",\"type\":\"string\"}],\"name\":\"LandSurveyingArea\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_notary\",\"type\":\"address\"}],\"name\":\"addNotary\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_surveyor\",\"type\":\"address\"}],\"name\":\"addSurveyor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_landId\",\"type\":\"uint256\"}],\"name\":\"getLandTransactionHistory\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_transactionId\",\"type\":\"uint256\"}],\"name\":\"getTransactionDetails\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"landId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"internalType\":\"structLandTransaction.Transaction\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"lands\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"location\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"area\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"detailsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"reportHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"documentsHash\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"landsTransactionIdList\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"notaries\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"landId\",\"type\":\"uint256\"}],\"name\":\"queryLand\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"location\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"area\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"detailsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"reportHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"documentsHash\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"internalType\":\"structLandRegistry.Land\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"queryUserInfo\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"username\",\"type\":\"string\"},{\"internalType\":\"uint256[]\",\"name\":\"landIdList\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"transactionIdList\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"internalType\":\"structLandRegistry.User\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_landId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_location\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_detailsHash\",\"type\":\"string\"}],\"name\":\"registerLand\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_userName\",\"type\":\"string\"}],\"name\":\"registerUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"surveyors\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"transactionCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"transactions\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"landId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_landId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_transactionId\",\"type\":\"uint256\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"userMapping\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"username\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_landId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_documentsHash\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"_isVerified\",\"type\":\"bool\"}],\"name\":\"verifyLand\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
-	Bin: "0x60806040525f6006553480156012575f80fd5b506040516120a03803806120a0833981016040819052602f916060565b5f80546001600160a01b03199081163317909155600180546001600160a01b0390931692909116919091179055608b565b5f60208284031215606f575f80fd5b81516001600160a01b03811681146084575f80fd5b9392505050565b612008806100985f395ff3fe608060405234801561000f575f80fd5b5060043610610131575f3560e01c80637dc0d1d0116100b45780639de8e3ea116100795780639de8e3ea146103bc578063a45c2c4c146103dc578063ad812a52146103ef578063e261f1e514610402578063e756769614610429578063f5b73cbc14610449575f80fd5b80637dc0d1d0146102d957806387b6963f146103045780638da5cb5b146103265780639437922a146103385780639ace38c21461034b575f80fd5b806314e887e8116100fa57806314e887e81461027457806349695ecc1461028b5780634fb2e45d1461029e5780635307d396146102b157806370435c99146102c6575f80fd5b8062e168f0146101355780630588565f1461016c5780630ea126f9146101815780630fa683d314610194578063118b953514610253575b5f80fd5b61015761014336600461184b565b60056020525f908152604090205460ff1681565b60405190151581526020015b60405180910390f35b61017f61017a36600461184b565b61045c565b005b61017f61018f36600461190a565b610494565b6102126101a2366004611955565b60408051608080820183525f8083526020808401829052838501829052606093840182905294815260078552839020835191820184528054825260018101546001600160a01b03908116958301959095526002810154909416928101929092526003909201549181019190915290565b60408051825181526020808401516001600160a01b039081169183019190915283830151169181019190915260609182015191810191909152608001610163565b61026661026136600461184b565b6105b8565b60405161016392919061199a565b61027d60095481565b604051908152602001610163565b61017f6102993660046119bd565b61065c565b61017f6102ac36600461184b565b6107d9565b6102b9610859565b6040516101639190611a52565b61017f6102d4366004611ac1565b6109ef565b6001546102ec906001600160a01b031681565b6040516001600160a01b039091168152602001610163565b61015761031236600461184b565b60046020525f908152604090205460ff1681565b5f546102ec906001600160a01b031681565b61017f610346366004611af4565b610cab565b61038c610359366004611955565b60076020525f9081526040902080546001820154600283015460039093015491926001600160a01b039182169291169084565b60405161016394939291909384526001600160a01b03928316602085015291166040830152606082015260800190565b6103cf6103ca366004611955565b610ef1565b6040516101639190611b61565b61017f6103ea366004611ba3565b610f50565b61017f6103fd36600461184b565b6110a0565b610415610410366004611955565b6110d8565b604051610163989796959493929190611bd9565b61043c610437366004611955565b611345565b6040516101639190611c5d565b61027d610457366004611d29565b61168e565b5f546001600160a01b03163314610471575f80fd5b6001600160a01b03165f908152600560205260409020805460ff19166001179055565b5f546001600160a01b031633146104a9575f80fd5b6001600160a01b0382165f9081526002602052604090206003015460ff161561050a5760405162461bcd60e51b815260206004820152600e60248201526d757365722069732065786973747360901b60448201526064015b60405180910390fd5b6040805160808101825282815281515f80825260208083018552808401929092528351818152808301855283850152600160608401526001600160a01b0386168152600290915291909120815181906105639082611dcc565b50602082810151805161057c92600185019201906117d3565b50604082015180516105989160028401916020909101906117d3565b50606091909101516003909101805460ff19169115159190911790555050565b60026020525f90815260409020805481906105d290611d49565b80601f01602080910402602001604051908101604052809291908181526020018280546105fe90611d49565b80156106495780601f1061062057610100808354040283529160200191610649565b820191905f5260205f20905b81548152906001019060200180831161062c57829003601f168201915b5050506003909301549192505060ff1682565b335f9081526005602052604090205460ff166106ab5760405162461bcd60e51b815260206004820152600e60248201526d4e6f742061206e6f74617269657360901b6044820152606401610501565b5f8381526003602052604090206007015460ff166107005760405162461bcd60e51b81526020600482015260126024820152716c616e64206973206e6f742065786973747360701b6044820152606401610501565b6001546001600160a01b031633146107515760405162461bcd60e51b815260206004820152601460248201527313db9b1e481bdc9858db194818d85b8818d85b1b60621b6044820152606401610501565b5f83815260036020526040902060060161076b8382611dcc565b505f83815260036020819052604091829020908101805460ff19168415151790559051339185917f378e3aa8b6938b8ea84d87fd3355efdb97062e22ca268d202cb08acb23e1f0d9916107cc91600482019160050190889088904290611f06565b60405180910390a3505050565b5f546001600160a01b031633146107ee575f80fd5b6001600160a01b038116610800575f80fd5b5f80546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a35f80546001600160a01b0319166001600160a01b0392909216919091179055565b61088560405180608001604052806060815260200160608152602001606081526020015f151581525090565b335f90815260026020526040908190208151608081019092528054829082906108ad90611d49565b80601f01602080910402602001604051908101604052809291908181526020018280546108d990611d49565b80156109245780601f106108fb57610100808354040283529160200191610924565b820191905f5260205f20905b81548152906001019060200180831161090757829003601f168201915b505050505081526020016001820180548060200260200160405190810160405280929190818152602001828054801561097a57602002820191905f5260205f20905b815481526020019060010190808311610966575b50505050508152602001600282018054806020026020016040519081016040528092919081815260200182805480156109d057602002820191905f5260205f20905b8154815260200190600101908083116109bc575b50505091835250506003919091015460ff161515602090910152919050565b826109f9816116b9565b610a355760405162461bcd60e51b815260206004820152600d60248201526c1b9bdd081e5bdd5c881b185b99609a1b6044820152606401610501565b6001600160a01b0383163303610a8d5760405162461bcd60e51b815260206004820181905260248201527f43616e6e6f74206265207472616e7366657272656420746f206f6e6573656c666044820152606401610501565b5f848152600360208190526040909120015460ff16610aee5760405162461bcd60e51b815260206004820152601960248201527f74686973206c616e64206973206e6f74205665726966696564000000000000006044820152606401610501565b6001600160a01b0383165f9081526002602052604090206003015460ff16610b4f5760405162461bcd60e51b8152602060048201526014602482015273746f55736572206973206e6f742065786973747360601b6044820152606401610501565b6001600160a01b0383165f90815260026020908152604082206001908101805491820181558352912001849055610b8584611714565b6001600160a01b038381165f81815260026020818152604080842083018054600180820183559186528386200189905533808652828620850180548084018255908752848720018a905582516080810184528c815280850182815281850189815242606084018181528e8b5260078952998790209351845591519483018054958c166001600160a01b031996871617905551968201805497909a16969093169590951790975593516003909301929092558151938452830191909152869185917f4bb86a8504e257f90fe72dcaa3a3d0dfb04b72836b57aa6882b7bc2a1b82a4d1910160405180910390a460098054905f610c7f83611f67565b9091555050505f9283526008602090815260408420805460018101825590855293209092019190915550565b335f9081526002602052604090206003015460ff16610cfa5760405162461bcd60e51b815260206004820152600b60248201526a34b9903737ba103ab9b2b960a91b6044820152606401610501565b5f8381526003602052604090206007015460ff1615610d4c5760405162461bcd60e51b815260206004820152600e60248201526d6c616e642069732065786973747360901b6044820152606401610501565b604080516101008101825233815260208082018581525f838501819052606084018190528451808401865281815260808501528451808401865281815260a08501528451808401865281815260c0850152600160e08501819052888252600390935293909320825181546001600160a01b0319166001600160a01b03909116178155925191929190820190610de19082611dcc565b5060408201516002820155606082015160038201805460ff191691151591909117905560808201516004820190610e189082611dcc565b5060a08201516005820190610e2d9082611dcc565b5060c08201516006820190610e429082611dcc565b5060e091909101516007909101805460ff19169115159190911790555f838152600360205260409020600401610e788282611dcc565b50335f818152600260209081526040808320600190810180549182018155845291909220018590555184907f9c4ad74928fec1ee86181680df0e76bf575b79ea2a0347f7ed270884bdd26ad790610ed0908690611f7f565b60405180910390a360068054905f610ee783611f67565b9190505550505050565b5f81815260086020908152604091829020805483518184028101840190945280845260609392830182828015610f4457602002820191905f5260205f20905b815481526020019060010190808311610f30575b50505050509050919050565b335f9081526004602052604090205460ff16610f9f5760405162461bcd60e51b815260206004820152600e60248201526d2737ba10309039bab93b32bcb7b960911b6044820152606401610501565b5f8381526003602052604090206007015460ff16610ff45760405162461bcd60e51b81526020600482015260126024820152716c616e64206973206e6f742065786973747360701b6044820152606401610501565b6001546001600160a01b031633146110455760405162461bcd60e51b815260206004820152601460248201527313db9b1e481bdc9858db194818d85b8818d85b1b60621b6044820152606401610501565b5f838152600360205260409020600281018390556005016110668282611dcc565b5060408051838152426020820152339185917f9f207f53ad48e112fa882ba14907e3301685086486bac5d73bab867a7c9a3c1191016107cc565b5f546001600160a01b031633146110b5575f80fd5b6001600160a01b03165f908152600460205260409020805460ff19166001179055565b60036020525f9081526040902080546001820180546001600160a01b03909216929161110390611d49565b80601f016020809104026020016040519081016040528092919081815260200182805461112f90611d49565b801561117a5780601f106111515761010080835404028352916020019161117a565b820191905f5260205f20905b81548152906001019060200180831161115d57829003601f168201915b50505050600283015460038401546004850180549495929460ff9092169350906111a390611d49565b80601f01602080910402602001604051908101604052809291908181526020018280546111cf90611d49565b801561121a5780601f106111f15761010080835404028352916020019161121a565b820191905f5260205f20905b8154815290600101906020018083116111fd57829003601f168201915b50505050509080600501805461122f90611d49565b80601f016020809104026020016040519081016040528092919081815260200182805461125b90611d49565b80156112a65780601f1061127d576101008083540402835291602001916112a6565b820191905f5260205f20905b81548152906001019060200180831161128957829003601f168201915b5050505050908060060180546112bb90611d49565b80601f01602080910402602001604051908101604052809291908181526020018280546112e790611d49565b80156113325780601f1061130957610100808354040283529160200191611332565b820191905f5260205f20905b81548152906001019060200180831161131557829003601f168201915b5050506007909301549192505060ff1688565b6113966040518061010001604052805f6001600160a01b03168152602001606081526020015f81526020015f151581526020016060815260200160608152602001606081526020015f151581525090565b5f828152600360208190526040909120015460ff166113ee5760405162461bcd60e51b81526020600482015260146024820152731b185b99081a5cc81b9bdd081d995c9a599a595960621b6044820152606401610501565b5f828152600360209081526040918290208251610100810190935280546001600160a01b03168352600181018054919284019161142a90611d49565b80601f016020809104026020016040519081016040528092919081815260200182805461145690611d49565b80156114a15780601f10611478576101008083540402835291602001916114a1565b820191905f5260205f20905b81548152906001019060200180831161148457829003601f168201915b505050918352505060028201546020820152600382015460ff16151560408201526004820180546060909201916114d790611d49565b80601f016020809104026020016040519081016040528092919081815260200182805461150390611d49565b801561154e5780601f106115255761010080835404028352916020019161154e565b820191905f5260205f20905b81548152906001019060200180831161153157829003601f168201915b5050505050815260200160058201805461156790611d49565b80601f016020809104026020016040519081016040528092919081815260200182805461159390611d49565b80156115de5780601f106115b5576101008083540402835291602001916115de565b820191905f5260205f20905b8154815290600101906020018083116115c157829003601f168201915b505050505081526020016006820180546115f790611d49565b80601f016020809104026020016040519081016040528092919081815260200182805461162390611d49565b801561166e5780601f106116455761010080835404028352916020019161166e565b820191905f5260205f20905b81548152906001019060200180831161165157829003601f168201915b50505091835250506007919091015460ff16151560209091015292915050565b6008602052815f5260405f2081815481106116a7575f80fd5b905f5260205f20015f91509150505481565b335f908152600260205260408120815b600182015481101561170b57838260010182815481106116eb576116eb611f91565b905f5260205f20015403611703575060019392505050565b6001016116c9565b505f9392505050565b335f908152600260205260408120905b60018201548110156117ce578282600101828154811061174657611746611f91565b905f5260205f200154036117c65760018083018054909161176691611fa5565b8154811061177657611776611f91565b905f5260205f20015482600101828154811061179457611794611f91565b5f91825260209091200155600182018054806117b2576117b2611fbe565b600190038181905f5260205f20015f905590555b600101611724565b505050565b828054828255905f5260205f2090810192821561180c579160200282015b8281111561180c5782518255916020019190600101906117f1565b5061181892915061181c565b5090565b5b80821115611818575f815560010161181d565b80356001600160a01b0381168114611846575f80fd5b919050565b5f6020828403121561185b575f80fd5b61186482611830565b9392505050565b634e487b7160e01b5f52604160045260245ffd5b5f82601f83011261188e575f80fd5b813567ffffffffffffffff8111156118a8576118a861186b565b604051601f8201601f19908116603f0116810167ffffffffffffffff811182821017156118d7576118d761186b565b6040528181528382016020018510156118ee575f80fd5b816020850160208301375f918101602001919091529392505050565b5f806040838503121561191b575f80fd5b61192483611830565b9150602083013567ffffffffffffffff81111561193f575f80fd5b61194b8582860161187f565b9150509250929050565b5f60208284031215611965575f80fd5b5035919050565b5f81518084528060208401602086015e5f602082860101526020601f19601f83011685010191505092915050565b604081525f6119ac604083018561196c565b905082151560208301529392505050565b5f805f606084860312156119cf575f80fd5b83359250602084013567ffffffffffffffff8111156119ec575f80fd5b6119f88682870161187f565b92505060408401358015158114611a0d575f80fd5b809150509250925092565b5f8151808452602084019350602083015f5b82811015611a48578151865260209586019590910190600101611a2a565b5093949350505050565b602081525f825160806020840152611a6d60a084018261196c565b90506020840151601f19848303016040850152611a8a8282611a18565b9150506040840151601f19848303016060850152611aa88282611a18565b9150506060840151151560808401528091505092915050565b5f805f60608486031215611ad3575f80fd5b83359250611ae360208501611830565b929592945050506040919091013590565b5f805f60608486031215611b06575f80fd5b83359250602084013567ffffffffffffffff811115611b23575f80fd5b611b2f8682870161187f565b925050604084013567ffffffffffffffff811115611b4b575f80fd5b611b578682870161187f565b9150509250925092565b602080825282518282018190525f918401906040840190835b81811015611b98578351835260209384019390920191600101611b7a565b509095945050505050565b5f805f60608486031215611bb5575f80fd5b8335925060208401359150604084013567ffffffffffffffff811115611b4b575f80fd5b6001600160a01b0389168152610100602082018190525f90611bfd9083018a61196c565b88604084015287151560608401528281036080840152611c1d818861196c565b905082810360a0840152611c31818761196c565b905082810360c0840152611c45818661196c565b91505082151560e08301529998505050505050505050565b60208152611c776020820183516001600160a01b03169052565b5f60208301516101006040840152611c9361012084018261196c565b9050604084015160608401526060840151611cb2608085018215159052565b506080840151838203601f190160a0850152611cce828261196c565b91505060a0840151601f198483030160c0850152611cec828261196c565b91505060c0840151601f198483030160e0850152611d0a828261196c565b91505060e0840151611d2161010085018215159052565b509392505050565b5f8060408385031215611d3a575f80fd5b50508035926020909101359150565b600181811c90821680611d5d57607f821691505b602082108103611d7b57634e487b7160e01b5f52602260045260245ffd5b50919050565b601f8211156117ce57805f5260205f20601f840160051c81016020851015611da65750805b601f840160051c820191505b81811015611dc5575f8155600101611db2565b5050505050565b815167ffffffffffffffff811115611de657611de661186b565b611dfa81611df48454611d49565b84611d81565b6020601f821160018114611e2c575f8315611e155750848201515b5f19600385901b1c1916600184901b178455611dc5565b5f84815260208120601f198516915b82811015611e5b5787850151825560209485019460019092019101611e3b565b5084821015611e7857868401515f19600387901b60f8161c191681555b50505050600190811b01905550565b5f8154611e9381611d49565b808552600182168015611ead5760018114611ec957611efd565b60ff1983166020870152602082151560051b8701019350611efd565b845f5260205f205f5b83811015611ef45781546020828a010152600182019150602081019050611ed2565b87016020019450505b50505092915050565b60a081525f611f1860a0830188611e87565b8281036020840152611f2a8188611e87565b90508281036040840152611f3e818761196c565b94151560608401525050608001529392505050565b634e487b7160e01b5f52601160045260245ffd5b5f60018201611f7857611f78611f53565b5060010190565b602081525f611864602083018461196c565b634e487b7160e01b5f52603260045260245ffd5b81810381811115611fb857611fb8611f53565b92915050565b634e487b7160e01b5f52603160045260245ffdfea2646970667358221220682753d56e8866c05f98a87f41d60c645cd1aae9124680a104fac3becea8133764736f6c634300081a0033",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"InitiateTransaction\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"location\",\"type\":\"string\"}],\"name\":\"LandRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"area\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"surveyorsAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestam\",\"type\":\"uint256\"}],\"name\":\"LandSurveying\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"detailsHash\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reportHash\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"documentsHash\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"notariesAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"LandVerified\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"transactionId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"TransactionRecorded\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_landId\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_area\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_reportHash\",\"type\":\"string\"}],\"name\":\"LandSurveyingArea\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_notary\",\"type\":\"address\"}],\"name\":\"addNotary\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_surveyor\",\"type\":\"address\"}],\"name\":\"addSurveyor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_landId\",\"type\":\"string\"}],\"name\":\"getLandTransactionHistory\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_transactionId\",\"type\":\"uint256\"}],\"name\":\"getTransactionDetails\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"internalType\":\"structLandTransaction.Transaction\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"lands\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"location\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"area\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"detailsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"reportHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"documentsHash\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"landsTransactionIdList\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"notaries\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"}],\"name\":\"queryLand\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"location\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"area\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"detailsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"reportHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"documentsHash\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"internalType\":\"structLandRegistry.Land\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"queryUserInfo\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"username\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"landIdList\",\"type\":\"string[]\"},{\"internalType\":\"uint256[]\",\"name\":\"transactionIdList\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"internalType\":\"structLandRegistry.User\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_landId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_location\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_detailsHash\",\"type\":\"string\"}],\"name\":\"registerLand\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_userName\",\"type\":\"string\"}],\"name\":\"registerUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"surveyors\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"transactionCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"transactions\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"landId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_landId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_landId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_transactionId\",\"type\":\"uint256\"}],\"name\":\"transferVerify\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"userMapping\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"username\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isVaild\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_landId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_documentsHash\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"_isVerified\",\"type\":\"bool\"}],\"name\":\"verifyLand\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	Bin: "0x60806040525f6006553480156012575f80fd5b50604051612b1c380380612b1c833981016040819052602f916060565b5f80546001600160a01b03199081163317909155600180546001600160a01b0390931692909116919091179055608b565b5f60208284031215606f575f80fd5b81516001600160a01b03811681146084575f80fd5b9392505050565b612a84806100985f395ff3fe608060405234801561000f575f80fd5b506004361061013c575f3560e01c80635307d396116100b4578063913831921161007957806391383192146102f75780639ace38c21461030a578063ad812a521461032e578063b1c8ad0d14610341578063b829c12a14610368578063c0e793c21461037b575f80fd5b80635307d396146102705780636af6909d146102855780637dc0d1d01461029857806387b6963f146102c35780638da5cb5b146102e5575f80fd5b80630fa683d3116101055780630fa683d3146101e0578063101dd0eb14610200578063118b95351461021357806314e887e8146102345780634fb2e45d1461023d57806351749d1e14610250575f80fd5b8062e168f014610140578063019a1565146101775780630588565f146101975780630ea126f9146101ac5780630ee4f079146101bf575b5f80fd5b61016261014e366004611f6b565b60056020525f908152604090205460ff1681565b60405190151581526020015b60405180910390f35b61018a610185366004612028565b61038e565b60405161016e919061208f565b6101aa6101a5366004611f6b565b6106fb565b005b6101aa6101ba36600461215b565b610733565b6101d26101cd3660046121a5565b610893565b60405190815260200161016e565b6101f36101ee3660046121e6565b6108cf565b60405161016e91906121fd565b6101aa61020e36600461225e565b6109e0565b610226610221366004611f6b565b610be4565b60405161016e9291906122d8565b6101d260095481565b6101aa61024b366004611f6b565b610c88565b61026361025e366004612028565b610d08565b60405161016e91906122fb565b610278610d76565b60405161016e9190612377565b6101aa610293366004612425565b610f8a565b6001546102ab906001600160a01b031681565b6040516001600160a01b03909116815260200161016e565b6101626102d1366004611f6b565b60046020525f908152604090205460ff1681565b5f546102ab906001600160a01b031681565b6101aa610305366004612490565b611132565b61031d6103183660046121e6565b6114f7565b60405161016e9594939291906124f1565b6101aa61033c366004611f6b565b6115bc565b61035461034f366004612028565b6115f4565b60405161016e989796959493929190612532565b6101aa6103763660046125b6565b61186d565b6101aa61038936600461262b565b611b08565b6103df6040518061010001604052805f6001600160a01b03168152602001606081526020015f81526020015f151581526020016060815260200160608152602001606081526020015f151581525090565b6003826040516103ef9190612675565b9081526040519081900360200190206003015460ff1661044d5760405162461bcd60e51b81526020600482015260146024820152731b185b99081a5cc81b9bdd081d995c9a599a595960621b60448201526064015b60405180910390fd5b60038260405161045d9190612675565b908152604080519182900360209081018320610100840190925281546001600160a01b03168352600182018054918401916104979061268b565b80601f01602080910402602001604051908101604052809291908181526020018280546104c39061268b565b801561050e5780601f106104e55761010080835404028352916020019161050e565b820191905f5260205f20905b8154815290600101906020018083116104f157829003601f168201915b505050918352505060028201546020820152600382015460ff16151560408201526004820180546060909201916105449061268b565b80601f01602080910402602001604051908101604052809291908181526020018280546105709061268b565b80156105bb5780601f10610592576101008083540402835291602001916105bb565b820191905f5260205f20905b81548152906001019060200180831161059e57829003601f168201915b505050505081526020016005820180546105d49061268b565b80601f01602080910402602001604051908101604052809291908181526020018280546106009061268b565b801561064b5780601f106106225761010080835404028352916020019161064b565b820191905f5260205f20905b81548152906001019060200180831161062e57829003601f168201915b505050505081526020016006820180546106649061268b565b80601f01602080910402602001604051908101604052809291908181526020018280546106909061268b565b80156106db5780601f106106b2576101008083540402835291602001916106db565b820191905f5260205f20905b8154815290600101906020018083116106be57829003601f168201915b50505091835250506007919091015460ff16151560209091015292915050565b5f546001600160a01b03163314610710575f80fd5b6001600160a01b03165f908152600560205260409020805460ff19166001179055565b5f546001600160a01b03163314610748575f80fd5b6001600160a01b0382165f9081526002602052604090206003015460ff16156107a45760405162461bcd60e51b815260206004820152600e60248201526d757365722069732065786973747360901b6044820152606401610444565b6040805160808101825282815281515f808252602082810190945291928301916107de565b60608152602001906001900390816107c95790505b5081526020015f60405190808252806020026020018201604052801561080e578160200160208202803683370190505b50815260016020918201526001600160a01b0384165f9081526002909152604090208151819061083e908261270f565b5060208281015180516108579260018501920190611e4d565b5060408201518051610873916002840191602090910190611ea1565b50606091909101516003909101805460ff19169115159190911790555050565b815160208184018101805160088252928201918501919091209190528054829081106108bd575f80fd5b905f5260205f20015f91509150505481565b6040805160a08101825260608082525f60208301819052928201839052810182905260808101919091525f8281526007602052604090819020815160a081019092528054829082906109209061268b565b80601f016020809104026020016040519081016040528092919081815260200182805461094c9061268b565b80156109975780601f1061096e57610100808354040283529160200191610997565b820191905f5260205f20905b81548152906001019060200180831161097a57829003601f168201915b505050918352505060018201546001600160a01b03908116602083015260028301541660408201526003820154606082015260049091015460ff16151560809091015292915050565b335f9081526005602052604090205460ff16610a2f5760405162461bcd60e51b815260206004820152600e60248201526d4e6f742061206e6f74617269657360901b6044820152606401610444565b600383604051610a3f9190612675565b9081526040519081900360200190206007015460ff16610a965760405162461bcd60e51b81526020600482015260126024820152716c616e64206973206e6f742065786973747360701b6044820152606401610444565b6001546001600160a01b03163314610ae75760405162461bcd60e51b815260206004820152601460248201527313db9b1e481bdc9858db194818d85b8818d85b1b60621b6044820152606401610444565b81600384604051610af89190612675565b90815260200160405180910390206006019081610b15919061270f565b5080600384604051610b279190612675565b908152604051908190036020018120600301805492151560ff19909316929092179091553390610b58908590612675565b60405180910390207f02c254bec0795f97886c74722bdf7fae93289967a7e3fb099a88c723f17f3955600386604051610b919190612675565b9081526020016040518091039020600401600387604051610bb29190612675565b9081526020016040518091039020600501868642604051610bd795949392919061284b565b60405180910390a3505050565b60026020525f9081526040902080548190610bfe9061268b565b80601f0160208091040260200160405190810160405280929190818152602001828054610c2a9061268b565b8015610c755780601f10610c4c57610100808354040283529160200191610c75565b820191905f5260205f20905b815481529060010190602001808311610c5857829003601f168201915b5050506003909301549192505060ff1682565b5f546001600160a01b03163314610c9d575f80fd5b6001600160a01b038116610caf575f80fd5b5f80546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a35f80546001600160a01b0319166001600160a01b0392909216919091179055565b6060600882604051610d1a9190612675565b9081526040805191829003602090810183208054808302850183019093528284529190830182828015610d6a57602002820191905f5260205f20905b815481526020019060010190808311610d56575b50505050509050919050565b610da260405180608001604052806060815260200160608152602001606081526020015f151581525090565b335f9081526002602052604090819020815160808101909252805482908290610dca9061268b565b80601f0160208091040260200160405190810160405280929190818152602001828054610df69061268b565b8015610e415780601f10610e1857610100808354040283529160200191610e41565b820191905f5260205f20905b815481529060010190602001808311610e2457829003601f168201915b5050505050815260200160018201805480602002602001604051908101604052809291908181526020015f905b82821015610f16578382905f5260205f20018054610e8b9061268b565b80601f0160208091040260200160405190810160405280929190818152602001828054610eb79061268b565b8015610f025780601f10610ed957610100808354040283529160200191610f02565b820191905f5260205f20905b815481529060010190602001808311610ee557829003601f168201915b505050505081526020019060010190610e6e565b50505050815260200160028201805480602002602001604051908101604052809291908181526020018280548015610f6b57602002820191905f5260205f20905b815481526020019060010190808311610f57575b50505091835250506003919091015460ff161515602090910152919050565b335f9081526004602052604090205460ff16610fd95760405162461bcd60e51b815260206004820152600e60248201526d2737ba10309039bab93b32bcb7b960911b6044820152606401610444565b600383604051610fe99190612675565b9081526040519081900360200190206007015460ff166110405760405162461bcd60e51b81526020600482015260126024820152716c616e64206973206e6f742065786973747360701b6044820152606401610444565b6001546001600160a01b031633146110915760405162461bcd60e51b815260206004820152601460248201527313db9b1e481bdc9858db194818d85b8818d85b1b60621b6044820152606401610444565b816003846040516110a29190612675565b908152602001604051809103902060020181905550806003846040516110c89190612675565b908152602001604051809103902060050190816110e5919061270f565b5060405133906110f6908590612675565b60408051918290038220858352426020840152917fc200ae8df18b7f538d348a1b0a8fb6b591cabace3b6c1b309e0cec72530930429101610bd7565b6001546001600160a01b03163314611148575f80fd5b5f8181526007602052604090206004015460ff16156111a95760405162461bcd60e51b815260206004820152601760248201527f7472616e73616374696f6e4964206973206578697374730000000000000000006044820152606401610444565b6111b38484611cd5565b6111f65760405162461bcd60e51b81526020600482015260146024820152731b9bdd08199c9bdb5059191c995cdcc81b185b9960621b6044820152606401610444565b816001600160a01b0316836001600160a01b0316036112575760405162461bcd60e51b815260206004820181905260248201527f43616e6e6f74206265207472616e7366657272656420746f206f6e6573656c666044820152606401610444565b6003846040516112679190612675565b9081526040519081900360200190206003015460ff166112c55760405162461bcd60e51b81526020600482015260196024820152781d1a1a5cc81b185b99081a5cc81b9bdd0815995c9a599a5959603a1b6044820152606401610444565b6001600160a01b0382165f9081526002602052604090206003015460ff166113265760405162461bcd60e51b8152602060048201526014602482015273746f55736572206973206e6f742065786973747360601b6044820152606401610444565b6001600160a01b0382165f9081526002602090815260408220600190810180549182018155835291200161135a858261270f565b506113658484611d58565b6001600160a01b038083165f8181526002602081815260408084208301805460018181018355918652838620018890559589168085528185209093018054808801825590855282852001879055805160a0810182528a815280830193909352828101949094524260608301526080820194909452848252600790935220815181906113f0908261270f565b5060208201516001820180546001600160a01b03199081166001600160a01b039384161790915560408085015160028501805490931690841617909155606084015160038401556080909301516004909201805460ff191692151592909217909155905190841690611463908690612675565b604080519182900382206001600160a01b03861683524260208401529184917fb6bcd7cfdc4168ada92756b190a8bdac9989fd732a43601cccb64665ad20102d910160405180910390a460098054905f6114bc836128ac565b91905055506008846040516114d19190612675565b9081526040516020918190038201902080546001810182555f9182529190200155505050565b60076020525f90815260409020805481906115119061268b565b80601f016020809104026020016040519081016040528092919081815260200182805461153d9061268b565b80156115885780601f1061155f57610100808354040283529160200191611588565b820191905f5260205f20905b81548152906001019060200180831161156b57829003601f168201915b5050505060018301546002840154600385015460049095015493946001600160a01b03928316949290911692509060ff1685565b5f546001600160a01b031633146115d1575f80fd5b6001600160a01b03165f908152600460205260409020805460ff19166001179055565b8051602081830181018051600382529282019190930120915280546001820180546001600160a01b03909216929161162b9061268b565b80601f01602080910402602001604051908101604052809291908181526020018280546116579061268b565b80156116a25780601f10611679576101008083540402835291602001916116a2565b820191905f5260205f20905b81548152906001019060200180831161168557829003601f168201915b50505050600283015460038401546004850180549495929460ff9092169350906116cb9061268b565b80601f01602080910402602001604051908101604052809291908181526020018280546116f79061268b565b80156117425780601f1061171957610100808354040283529160200191611742565b820191905f5260205f20905b81548152906001019060200180831161172557829003601f168201915b5050505050908060050180546117579061268b565b80601f01602080910402602001604051908101604052809291908181526020018280546117839061268b565b80156117ce5780601f106117a5576101008083540402835291602001916117ce565b820191905f5260205f20905b8154815290600101906020018083116117b157829003601f168201915b5050505050908060060180546117e39061268b565b80601f016020809104026020016040519081016040528092919081815260200182805461180f9061268b565b801561185a5780601f106118315761010080835404028352916020019161185a565b820191905f5260205f20905b81548152906001019060200180831161183d57829003601f168201915b5050506007909301549192505060ff1688565b335f9081526002602052604090206003015460ff166118bc5760405162461bcd60e51b815260206004820152600b60248201526a34b9903737ba103ab9b2b960a91b6044820152606401610444565b6003836040516118cc9190612675565b9081526040519081900360200190206007015460ff16156119205760405162461bcd60e51b815260206004820152600e60248201526d6c616e642069732065786973747360901b6044820152606401610444565b604080516101008101825233815260208082018590525f828401819052606083018190528351808301855281815260808401528351808301855281815260a084015283519182018452815260c0820152600160e08201529051600390611987908690612675565b90815260405160209181900382019020825181546001600160a01b0319166001600160a01b039091161781559082015160018201906119c6908261270f565b5060408201516002820155606082015160038201805460ff1916911515919091179055608082015160048201906119fd908261270f565b5060a08201516005820190611a12908261270f565b5060c08201516006820190611a27908261270f565b5060e091909101516007909101805460ff19169115159190911790556040518190600390611a56908690612675565b90815260200160405180910390206004019081611a73919061270f565b50335f90815260026020908152604082206001908101805491820181558352912001611a9f848261270f565b506040513390611ab0908590612675565b60405180910390207f0db565b66bc7b7d853b058610a600e099197798649c0dfa27c11fd7a82ecab7184604051611ae791906128c4565b60405180910390a360068054905f611afe836128ac565b9190505550505050565b8133611b148282611cd5565b611b505760405162461bcd60e51b815260206004820152600d60248201526c1b9bdd081e5bdd5c881b185b99609a1b6044820152606401610444565b6001600160a01b0383163303611ba85760405162461bcd60e51b815260206004820181905260248201527f43616e6e6f74206265207472616e7366657272656420746f206f6e6573656c666044820152606401610444565b600384604051611bb89190612675565b9081526040519081900360200190206003015460ff16611c165760405162461bcd60e51b81526020600482015260196024820152781d1a1a5cc81b185b99081a5cc81b9bdd0815995c9a599a5959603a1b6044820152606401610444565b6001600160a01b0383165f9081526002602052604090206003015460ff16611c775760405162461bcd60e51b8152602060048201526014602482015273746f55736572206973206e6f742065786973747360601b6044820152606401610444565b6040513390611c87908690612675565b604080519182900382206001600160a01b0387168352426020840152917f5248c259bc895d2c422508ce73ea783fe4bda339c570eaf7f4c4fd5859b54b38910160405180910390a350505050565b6001600160a01b0381165f908152600260205260408120815b6001820154811015611d4c578480519060200120826001018281548110611d1757611d176128d6565b905f5260205f2001604051611d2c91906128ea565b604051809103902003611d4457600192505050611d52565b600101611cee565b505f9150505b92915050565b6001600160a01b0381165f908152600260205260408120905b6001820154811015611e47578380519060200120826001018281548110611d9a57611d9a6128d6565b905f5260205f2001604051611daf91906128ea565b604051809103902003611e3f57600180830180549091611dce9161295b565b81548110611dde57611dde6128d6565b905f5260205f2001826001018281548110611dfb57611dfb6128d6565b905f5260205f20019081611e0f919061296e565b5081600101805480611e2357611e23612a3a565b600190038181905f5260205f20015f611e3c9190611ee6565b90555b600101611d71565b50505050565b828054828255905f5260205f20908101928215611e91579160200282015b82811115611e915782518290611e81908261270f565b5091602001919060010190611e6b565b50611e9d929150611f20565b5090565b828054828255905f5260205f20908101928215611eda579160200282015b82811115611eda578251825591602001919060010190611ebf565b50611e9d929150611f3c565b508054611ef29061268b565b5f825580601f10611f01575050565b601f0160209004905f5260205f2090810190611f1d9190611f3c565b50565b80821115611e9d575f611f338282611ee6565b50600101611f20565b5b80821115611e9d575f8155600101611f3d565b80356001600160a01b0381168114611f66575f80fd5b919050565b5f60208284031215611f7b575f80fd5b611f8482611f50565b9392505050565b634e487b7160e01b5f52604160045260245ffd5b5f82601f830112611fae575f80fd5b81356001600160401b03811115611fc757611fc7611f8b565b604051601f8201601f19908116603f011681016001600160401b0381118282101715611ff557611ff5611f8b565b60405281815283820160200185101561200c575f80fd5b816020850160208301375f918101602001919091529392505050565b5f60208284031215612038575f80fd5b81356001600160401b0381111561204d575f80fd5b61205984828501611f9f565b949350505050565b5f81518084528060208401602086015e5f602082860101526020601f19601f83011685010191505092915050565b602081526120a96020820183516001600160a01b03169052565b5f602083015161010060408401526120c5610120840182612061565b90506040840151606084015260608401516120e4608085018215159052565b506080840151838203601f190160a08501526121008282612061565b91505060a0840151601f198483030160c085015261211e8282612061565b91505060c0840151601f198483030160e085015261213c8282612061565b91505060e084015161215361010085018215159052565b509392505050565b5f806040838503121561216c575f80fd5b61217583611f50565b915060208301356001600160401b0381111561218f575f80fd5b61219b85828601611f9f565b9150509250929050565b5f80604083850312156121b6575f80fd5b82356001600160401b038111156121cb575f80fd5b6121d785828601611f9f565b95602094909401359450505050565b5f602082840312156121f6575f80fd5b5035919050565b602081525f825160a0602084015261221860c0840182612061565b905060018060a01b03602085015116604084015260018060a01b036040850151166060840152606084015160808401526080840151151560a08401528091505092915050565b5f805f60608486031215612270575f80fd5b83356001600160401b03811115612285575f80fd5b61229186828701611f9f565b93505060208401356001600160401b038111156122ac575f80fd5b6122b886828701611f9f565b925050604084013580151581146122cd575f80fd5b809150509250925092565b604081525f6122ea6040830185612061565b905082151560208301529392505050565b602080825282518282018190525f918401906040840190835b81811015612332578351835260209384019390920191600101612314565b509095945050505050565b5f8151808452602084019350602083015f5b8281101561236d57815186526020958601959091019060010161234f565b5093949350505050565b602081525f82516080602084015261239260a0840182612061565b602085810151858303601f19016040870152805180845292935081019181840191600582901b8501015f5b828110156123ee57601f198683030184526123d9828651612061565b602095860195949094019391506001016123bd565b506040880151878203601f19016060890152945061240c818661233d565b9450505050506060840151612153608085018215159052565b5f805f60608486031215612437575f80fd5b83356001600160401b0381111561244c575f80fd5b61245886828701611f9f565b9350506020840135915060408401356001600160401b0381111561247a575f80fd5b61248686828701611f9f565b9150509250925092565b5f805f80608085870312156124a3575f80fd5b84356001600160401b038111156124b8575f80fd5b6124c487828801611f9f565b9450506124d360208601611f50565b92506124e160408601611f50565b9396929550929360600135925050565b60a081525f61250360a0830188612061565b6001600160a01b0396871660208401529490951660408201526060810192909252151560809091015292915050565b6001600160a01b0389168152610100602082018190525f906125569083018a612061565b886040840152871515606084015282810360808401526125768188612061565b905082810360a084015261258a8187612061565b905082810360c084015261259e8186612061565b91505082151560e08301529998505050505050505050565b5f805f606084860312156125c8575f80fd5b83356001600160401b038111156125dd575f80fd5b6125e986828701611f9f565b93505060208401356001600160401b03811115612604575f80fd5b61261086828701611f9f565b92505060408401356001600160401b0381111561247a575f80fd5b5f806040838503121561263c575f80fd5b82356001600160401b03811115612651575f80fd5b61265d85828601611f9f565b92505061266c60208401611f50565b90509250929050565b5f82518060208501845e5f920191825250919050565b600181811c9082168061269f57607f821691505b6020821081036126bd57634e487b7160e01b5f52602260045260245ffd5b50919050565b601f82111561270a57805f5260205f20601f840160051c810160208510156126e85750805b601f840160051c820191505b81811015612707575f81556001016126f4565b50505b505050565b81516001600160401b0381111561272857612728611f8b565b61273c81612736845461268b565b846126c3565b6020601f821160018114612771575f83156127575750848201515b600184901b5f19600386901b1c198216175b855550612707565b5f84815260208120601f198516915b828110156127a05787850151825560209485019460019092019101612780565b50848210156127bd57868401515f19600387901b60f8161c191681555b50505050600190811b01905550565b5f81546127d88161268b565b8085526001821680156127f2576001811461280e57612842565b60ff1983166020870152602082151560051b8701019350612842565b845f5260205f205f5b838110156128395781546020828a010152600182019150602081019050612817565b87016020019450505b50505092915050565b60a081525f61285d60a08301886127cc565b828103602084015261286f81886127cc565b905082810360408401526128838187612061565b94151560608401525050608001529392505050565b634e487b7160e01b5f52601160045260245ffd5b5f600182016128bd576128bd612898565b5060010190565b602081525f611f846020830184612061565b634e487b7160e01b5f52603260045260245ffd5b5f8083546128f78161268b565b60018216801561290e576001811461292357612950565b60ff1983168652811515820286019350612950565b865f5260205f205f5b838110156129485781548882015260019091019060200161292c565b505081860193505b509195945050505050565b81810381811115611d5257611d52612898565b818103612979575050565b612983825461268b565b6001600160401b0381111561299a5761299a611f8b565b6129a881612736845461268b565b5f601f8211600181146129d7575f8315612757575081850154600184901b5f19600386901b1c19821617612769565b5f8581526020808220868352908220601f198616925b83811015612a0d57828601548255600195860195909101906020016129ed565b5085831015612a2a57818501545f19600388901b60f8161c191681555b5050505050600190811b01905550565b634e487b7160e01b5f52603160045260245ffdfea2646970667358221220ac224692fe2f0387c90cf0ffe87d6e1923c0a45d3fde80df2b5460c3ba18142b64736f6c634300081a0033",
 }
 
 // ContractABI is the input ABI used to generate the binding from.
@@ -230,10 +231,10 @@ func (_Contract *ContractTransactorRaw) Transact(opts *bind.TransactOpts, method
 	return _Contract.Contract.contract.Transact(opts, method, params...)
 }
 
-// GetLandTransactionHistory is a free data retrieval call binding the contract method 0x9de8e3ea.
+// GetLandTransactionHistory is a free data retrieval call binding the contract method 0x51749d1e.
 //
-// Solidity: function getLandTransactionHistory(uint256 _landId) view returns(uint256[])
-func (_Contract *ContractCaller) GetLandTransactionHistory(opts *bind.CallOpts, _landId *big.Int) ([]*big.Int, error) {
+// Solidity: function getLandTransactionHistory(string _landId) view returns(uint256[])
+func (_Contract *ContractCaller) GetLandTransactionHistory(opts *bind.CallOpts, _landId string) ([]*big.Int, error) {
 	var out []interface{}
 	err := _Contract.contract.Call(opts, &out, "getLandTransactionHistory", _landId)
 
@@ -247,23 +248,23 @@ func (_Contract *ContractCaller) GetLandTransactionHistory(opts *bind.CallOpts, 
 
 }
 
-// GetLandTransactionHistory is a free data retrieval call binding the contract method 0x9de8e3ea.
+// GetLandTransactionHistory is a free data retrieval call binding the contract method 0x51749d1e.
 //
-// Solidity: function getLandTransactionHistory(uint256 _landId) view returns(uint256[])
-func (_Contract *ContractSession) GetLandTransactionHistory(_landId *big.Int) ([]*big.Int, error) {
+// Solidity: function getLandTransactionHistory(string _landId) view returns(uint256[])
+func (_Contract *ContractSession) GetLandTransactionHistory(_landId string) ([]*big.Int, error) {
 	return _Contract.Contract.GetLandTransactionHistory(&_Contract.CallOpts, _landId)
 }
 
-// GetLandTransactionHistory is a free data retrieval call binding the contract method 0x9de8e3ea.
+// GetLandTransactionHistory is a free data retrieval call binding the contract method 0x51749d1e.
 //
-// Solidity: function getLandTransactionHistory(uint256 _landId) view returns(uint256[])
-func (_Contract *ContractCallerSession) GetLandTransactionHistory(_landId *big.Int) ([]*big.Int, error) {
+// Solidity: function getLandTransactionHistory(string _landId) view returns(uint256[])
+func (_Contract *ContractCallerSession) GetLandTransactionHistory(_landId string) ([]*big.Int, error) {
 	return _Contract.Contract.GetLandTransactionHistory(&_Contract.CallOpts, _landId)
 }
 
 // GetTransactionDetails is a free data retrieval call binding the contract method 0x0fa683d3.
 //
-// Solidity: function getTransactionDetails(uint256 _transactionId) view returns((uint256,address,address,uint256))
+// Solidity: function getTransactionDetails(uint256 _transactionId) view returns((string,address,address,uint256,bool))
 func (_Contract *ContractCaller) GetTransactionDetails(opts *bind.CallOpts, _transactionId *big.Int) (LandTransactionTransaction, error) {
 	var out []interface{}
 	err := _Contract.contract.Call(opts, &out, "getTransactionDetails", _transactionId)
@@ -280,22 +281,22 @@ func (_Contract *ContractCaller) GetTransactionDetails(opts *bind.CallOpts, _tra
 
 // GetTransactionDetails is a free data retrieval call binding the contract method 0x0fa683d3.
 //
-// Solidity: function getTransactionDetails(uint256 _transactionId) view returns((uint256,address,address,uint256))
+// Solidity: function getTransactionDetails(uint256 _transactionId) view returns((string,address,address,uint256,bool))
 func (_Contract *ContractSession) GetTransactionDetails(_transactionId *big.Int) (LandTransactionTransaction, error) {
 	return _Contract.Contract.GetTransactionDetails(&_Contract.CallOpts, _transactionId)
 }
 
 // GetTransactionDetails is a free data retrieval call binding the contract method 0x0fa683d3.
 //
-// Solidity: function getTransactionDetails(uint256 _transactionId) view returns((uint256,address,address,uint256))
+// Solidity: function getTransactionDetails(uint256 _transactionId) view returns((string,address,address,uint256,bool))
 func (_Contract *ContractCallerSession) GetTransactionDetails(_transactionId *big.Int) (LandTransactionTransaction, error) {
 	return _Contract.Contract.GetTransactionDetails(&_Contract.CallOpts, _transactionId)
 }
 
-// Lands is a free data retrieval call binding the contract method 0xe261f1e5.
+// Lands is a free data retrieval call binding the contract method 0xb1c8ad0d.
 //
-// Solidity: function lands(uint256 ) view returns(address owner, string location, uint256 area, bool isVerified, string detailsHash, string reportHash, string documentsHash, bool isVaild)
-func (_Contract *ContractCaller) Lands(opts *bind.CallOpts, arg0 *big.Int) (struct {
+// Solidity: function lands(string ) view returns(address owner, string location, uint256 area, bool isVerified, string detailsHash, string reportHash, string documentsHash, bool isVaild)
+func (_Contract *ContractCaller) Lands(opts *bind.CallOpts, arg0 string) (struct {
 	Owner         common.Address
 	Location      string
 	Area          *big.Int
@@ -335,10 +336,10 @@ func (_Contract *ContractCaller) Lands(opts *bind.CallOpts, arg0 *big.Int) (stru
 
 }
 
-// Lands is a free data retrieval call binding the contract method 0xe261f1e5.
+// Lands is a free data retrieval call binding the contract method 0xb1c8ad0d.
 //
-// Solidity: function lands(uint256 ) view returns(address owner, string location, uint256 area, bool isVerified, string detailsHash, string reportHash, string documentsHash, bool isVaild)
-func (_Contract *ContractSession) Lands(arg0 *big.Int) (struct {
+// Solidity: function lands(string ) view returns(address owner, string location, uint256 area, bool isVerified, string detailsHash, string reportHash, string documentsHash, bool isVaild)
+func (_Contract *ContractSession) Lands(arg0 string) (struct {
 	Owner         common.Address
 	Location      string
 	Area          *big.Int
@@ -351,10 +352,10 @@ func (_Contract *ContractSession) Lands(arg0 *big.Int) (struct {
 	return _Contract.Contract.Lands(&_Contract.CallOpts, arg0)
 }
 
-// Lands is a free data retrieval call binding the contract method 0xe261f1e5.
+// Lands is a free data retrieval call binding the contract method 0xb1c8ad0d.
 //
-// Solidity: function lands(uint256 ) view returns(address owner, string location, uint256 area, bool isVerified, string detailsHash, string reportHash, string documentsHash, bool isVaild)
-func (_Contract *ContractCallerSession) Lands(arg0 *big.Int) (struct {
+// Solidity: function lands(string ) view returns(address owner, string location, uint256 area, bool isVerified, string detailsHash, string reportHash, string documentsHash, bool isVaild)
+func (_Contract *ContractCallerSession) Lands(arg0 string) (struct {
 	Owner         common.Address
 	Location      string
 	Area          *big.Int
@@ -367,10 +368,10 @@ func (_Contract *ContractCallerSession) Lands(arg0 *big.Int) (struct {
 	return _Contract.Contract.Lands(&_Contract.CallOpts, arg0)
 }
 
-// LandsTransactionIdList is a free data retrieval call binding the contract method 0xf5b73cbc.
+// LandsTransactionIdList is a free data retrieval call binding the contract method 0x0ee4f079.
 //
-// Solidity: function landsTransactionIdList(uint256 , uint256 ) view returns(uint256)
-func (_Contract *ContractCaller) LandsTransactionIdList(opts *bind.CallOpts, arg0 *big.Int, arg1 *big.Int) (*big.Int, error) {
+// Solidity: function landsTransactionIdList(string , uint256 ) view returns(uint256)
+func (_Contract *ContractCaller) LandsTransactionIdList(opts *bind.CallOpts, arg0 string, arg1 *big.Int) (*big.Int, error) {
 	var out []interface{}
 	err := _Contract.contract.Call(opts, &out, "landsTransactionIdList", arg0, arg1)
 
@@ -384,17 +385,17 @@ func (_Contract *ContractCaller) LandsTransactionIdList(opts *bind.CallOpts, arg
 
 }
 
-// LandsTransactionIdList is a free data retrieval call binding the contract method 0xf5b73cbc.
+// LandsTransactionIdList is a free data retrieval call binding the contract method 0x0ee4f079.
 //
-// Solidity: function landsTransactionIdList(uint256 , uint256 ) view returns(uint256)
-func (_Contract *ContractSession) LandsTransactionIdList(arg0 *big.Int, arg1 *big.Int) (*big.Int, error) {
+// Solidity: function landsTransactionIdList(string , uint256 ) view returns(uint256)
+func (_Contract *ContractSession) LandsTransactionIdList(arg0 string, arg1 *big.Int) (*big.Int, error) {
 	return _Contract.Contract.LandsTransactionIdList(&_Contract.CallOpts, arg0, arg1)
 }
 
-// LandsTransactionIdList is a free data retrieval call binding the contract method 0xf5b73cbc.
+// LandsTransactionIdList is a free data retrieval call binding the contract method 0x0ee4f079.
 //
-// Solidity: function landsTransactionIdList(uint256 , uint256 ) view returns(uint256)
-func (_Contract *ContractCallerSession) LandsTransactionIdList(arg0 *big.Int, arg1 *big.Int) (*big.Int, error) {
+// Solidity: function landsTransactionIdList(string , uint256 ) view returns(uint256)
+func (_Contract *ContractCallerSession) LandsTransactionIdList(arg0 string, arg1 *big.Int) (*big.Int, error) {
 	return _Contract.Contract.LandsTransactionIdList(&_Contract.CallOpts, arg0, arg1)
 }
 
@@ -491,10 +492,10 @@ func (_Contract *ContractCallerSession) Owner() (common.Address, error) {
 	return _Contract.Contract.Owner(&_Contract.CallOpts)
 }
 
-// QueryLand is a free data retrieval call binding the contract method 0xe7567696.
+// QueryLand is a free data retrieval call binding the contract method 0x019a1565.
 //
-// Solidity: function queryLand(uint256 landId) view returns((address,string,uint256,bool,string,string,string,bool))
-func (_Contract *ContractCaller) QueryLand(opts *bind.CallOpts, landId *big.Int) (LandRegistryLand, error) {
+// Solidity: function queryLand(string landId) view returns((address,string,uint256,bool,string,string,string,bool))
+func (_Contract *ContractCaller) QueryLand(opts *bind.CallOpts, landId string) (LandRegistryLand, error) {
 	var out []interface{}
 	err := _Contract.contract.Call(opts, &out, "queryLand", landId)
 
@@ -508,23 +509,23 @@ func (_Contract *ContractCaller) QueryLand(opts *bind.CallOpts, landId *big.Int)
 
 }
 
-// QueryLand is a free data retrieval call binding the contract method 0xe7567696.
+// QueryLand is a free data retrieval call binding the contract method 0x019a1565.
 //
-// Solidity: function queryLand(uint256 landId) view returns((address,string,uint256,bool,string,string,string,bool))
-func (_Contract *ContractSession) QueryLand(landId *big.Int) (LandRegistryLand, error) {
+// Solidity: function queryLand(string landId) view returns((address,string,uint256,bool,string,string,string,bool))
+func (_Contract *ContractSession) QueryLand(landId string) (LandRegistryLand, error) {
 	return _Contract.Contract.QueryLand(&_Contract.CallOpts, landId)
 }
 
-// QueryLand is a free data retrieval call binding the contract method 0xe7567696.
+// QueryLand is a free data retrieval call binding the contract method 0x019a1565.
 //
-// Solidity: function queryLand(uint256 landId) view returns((address,string,uint256,bool,string,string,string,bool))
-func (_Contract *ContractCallerSession) QueryLand(landId *big.Int) (LandRegistryLand, error) {
+// Solidity: function queryLand(string landId) view returns((address,string,uint256,bool,string,string,string,bool))
+func (_Contract *ContractCallerSession) QueryLand(landId string) (LandRegistryLand, error) {
 	return _Contract.Contract.QueryLand(&_Contract.CallOpts, landId)
 }
 
 // QueryUserInfo is a free data retrieval call binding the contract method 0x5307d396.
 //
-// Solidity: function queryUserInfo() view returns((string,uint256[],uint256[],bool))
+// Solidity: function queryUserInfo() view returns((string,string[],uint256[],bool))
 func (_Contract *ContractCaller) QueryUserInfo(opts *bind.CallOpts) (LandRegistryUser, error) {
 	var out []interface{}
 	err := _Contract.contract.Call(opts, &out, "queryUserInfo")
@@ -541,14 +542,14 @@ func (_Contract *ContractCaller) QueryUserInfo(opts *bind.CallOpts) (LandRegistr
 
 // QueryUserInfo is a free data retrieval call binding the contract method 0x5307d396.
 //
-// Solidity: function queryUserInfo() view returns((string,uint256[],uint256[],bool))
+// Solidity: function queryUserInfo() view returns((string,string[],uint256[],bool))
 func (_Contract *ContractSession) QueryUserInfo() (LandRegistryUser, error) {
 	return _Contract.Contract.QueryUserInfo(&_Contract.CallOpts)
 }
 
 // QueryUserInfo is a free data retrieval call binding the contract method 0x5307d396.
 //
-// Solidity: function queryUserInfo() view returns((string,uint256[],uint256[],bool))
+// Solidity: function queryUserInfo() view returns((string,string[],uint256[],bool))
 func (_Contract *ContractCallerSession) QueryUserInfo() (LandRegistryUser, error) {
 	return _Contract.Contract.QueryUserInfo(&_Contract.CallOpts)
 }
@@ -617,30 +618,33 @@ func (_Contract *ContractCallerSession) TransactionCounter() (*big.Int, error) {
 
 // Transactions is a free data retrieval call binding the contract method 0x9ace38c2.
 //
-// Solidity: function transactions(uint256 ) view returns(uint256 landId, address from, address to, uint256 timestamp)
+// Solidity: function transactions(uint256 ) view returns(string landId, address from, address to, uint256 timestamp, bool isVaild)
 func (_Contract *ContractCaller) Transactions(opts *bind.CallOpts, arg0 *big.Int) (struct {
-	LandId    *big.Int
+	LandId    string
 	From      common.Address
 	To        common.Address
 	Timestamp *big.Int
+	IsVaild   bool
 }, error) {
 	var out []interface{}
 	err := _Contract.contract.Call(opts, &out, "transactions", arg0)
 
 	outstruct := new(struct {
-		LandId    *big.Int
+		LandId    string
 		From      common.Address
 		To        common.Address
 		Timestamp *big.Int
+		IsVaild   bool
 	})
 	if err != nil {
 		return *outstruct, err
 	}
 
-	outstruct.LandId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.LandId = *abi.ConvertType(out[0], new(string)).(*string)
 	outstruct.From = *abi.ConvertType(out[1], new(common.Address)).(*common.Address)
 	outstruct.To = *abi.ConvertType(out[2], new(common.Address)).(*common.Address)
 	outstruct.Timestamp = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.IsVaild = *abi.ConvertType(out[4], new(bool)).(*bool)
 
 	return *outstruct, err
 
@@ -648,24 +652,26 @@ func (_Contract *ContractCaller) Transactions(opts *bind.CallOpts, arg0 *big.Int
 
 // Transactions is a free data retrieval call binding the contract method 0x9ace38c2.
 //
-// Solidity: function transactions(uint256 ) view returns(uint256 landId, address from, address to, uint256 timestamp)
+// Solidity: function transactions(uint256 ) view returns(string landId, address from, address to, uint256 timestamp, bool isVaild)
 func (_Contract *ContractSession) Transactions(arg0 *big.Int) (struct {
-	LandId    *big.Int
+	LandId    string
 	From      common.Address
 	To        common.Address
 	Timestamp *big.Int
+	IsVaild   bool
 }, error) {
 	return _Contract.Contract.Transactions(&_Contract.CallOpts, arg0)
 }
 
 // Transactions is a free data retrieval call binding the contract method 0x9ace38c2.
 //
-// Solidity: function transactions(uint256 ) view returns(uint256 landId, address from, address to, uint256 timestamp)
+// Solidity: function transactions(uint256 ) view returns(string landId, address from, address to, uint256 timestamp, bool isVaild)
 func (_Contract *ContractCallerSession) Transactions(arg0 *big.Int) (struct {
-	LandId    *big.Int
+	LandId    string
 	From      common.Address
 	To        common.Address
 	Timestamp *big.Int
+	IsVaild   bool
 }, error) {
 	return _Contract.Contract.Transactions(&_Contract.CallOpts, arg0)
 }
@@ -715,24 +721,24 @@ func (_Contract *ContractCallerSession) UserMapping(arg0 common.Address) (struct
 	return _Contract.Contract.UserMapping(&_Contract.CallOpts, arg0)
 }
 
-// LandSurveyingArea is a paid mutator transaction binding the contract method 0xa45c2c4c.
+// LandSurveyingArea is a paid mutator transaction binding the contract method 0x6af6909d.
 //
-// Solidity: function LandSurveyingArea(uint256 _landId, uint256 _area, string _reportHash) returns()
-func (_Contract *ContractTransactor) LandSurveyingArea(opts *bind.TransactOpts, _landId *big.Int, _area *big.Int, _reportHash string) (*types.Transaction, error) {
+// Solidity: function LandSurveyingArea(string _landId, uint256 _area, string _reportHash) returns()
+func (_Contract *ContractTransactor) LandSurveyingArea(opts *bind.TransactOpts, _landId string, _area *big.Int, _reportHash string) (*types.Transaction, error) {
 	return _Contract.contract.Transact(opts, "LandSurveyingArea", _landId, _area, _reportHash)
 }
 
-// LandSurveyingArea is a paid mutator transaction binding the contract method 0xa45c2c4c.
+// LandSurveyingArea is a paid mutator transaction binding the contract method 0x6af6909d.
 //
-// Solidity: function LandSurveyingArea(uint256 _landId, uint256 _area, string _reportHash) returns()
-func (_Contract *ContractSession) LandSurveyingArea(_landId *big.Int, _area *big.Int, _reportHash string) (*types.Transaction, error) {
+// Solidity: function LandSurveyingArea(string _landId, uint256 _area, string _reportHash) returns()
+func (_Contract *ContractSession) LandSurveyingArea(_landId string, _area *big.Int, _reportHash string) (*types.Transaction, error) {
 	return _Contract.Contract.LandSurveyingArea(&_Contract.TransactOpts, _landId, _area, _reportHash)
 }
 
-// LandSurveyingArea is a paid mutator transaction binding the contract method 0xa45c2c4c.
+// LandSurveyingArea is a paid mutator transaction binding the contract method 0x6af6909d.
 //
-// Solidity: function LandSurveyingArea(uint256 _landId, uint256 _area, string _reportHash) returns()
-func (_Contract *ContractTransactorSession) LandSurveyingArea(_landId *big.Int, _area *big.Int, _reportHash string) (*types.Transaction, error) {
+// Solidity: function LandSurveyingArea(string _landId, uint256 _area, string _reportHash) returns()
+func (_Contract *ContractTransactorSession) LandSurveyingArea(_landId string, _area *big.Int, _reportHash string) (*types.Transaction, error) {
 	return _Contract.Contract.LandSurveyingArea(&_Contract.TransactOpts, _landId, _area, _reportHash)
 }
 
@@ -778,24 +784,24 @@ func (_Contract *ContractTransactorSession) AddSurveyor(_surveyor common.Address
 	return _Contract.Contract.AddSurveyor(&_Contract.TransactOpts, _surveyor)
 }
 
-// RegisterLand is a paid mutator transaction binding the contract method 0x9437922a.
+// RegisterLand is a paid mutator transaction binding the contract method 0xb829c12a.
 //
-// Solidity: function registerLand(uint256 _landId, string _location, string _detailsHash) returns()
-func (_Contract *ContractTransactor) RegisterLand(opts *bind.TransactOpts, _landId *big.Int, _location string, _detailsHash string) (*types.Transaction, error) {
+// Solidity: function registerLand(string _landId, string _location, string _detailsHash) returns()
+func (_Contract *ContractTransactor) RegisterLand(opts *bind.TransactOpts, _landId string, _location string, _detailsHash string) (*types.Transaction, error) {
 	return _Contract.contract.Transact(opts, "registerLand", _landId, _location, _detailsHash)
 }
 
-// RegisterLand is a paid mutator transaction binding the contract method 0x9437922a.
+// RegisterLand is a paid mutator transaction binding the contract method 0xb829c12a.
 //
-// Solidity: function registerLand(uint256 _landId, string _location, string _detailsHash) returns()
-func (_Contract *ContractSession) RegisterLand(_landId *big.Int, _location string, _detailsHash string) (*types.Transaction, error) {
+// Solidity: function registerLand(string _landId, string _location, string _detailsHash) returns()
+func (_Contract *ContractSession) RegisterLand(_landId string, _location string, _detailsHash string) (*types.Transaction, error) {
 	return _Contract.Contract.RegisterLand(&_Contract.TransactOpts, _landId, _location, _detailsHash)
 }
 
-// RegisterLand is a paid mutator transaction binding the contract method 0x9437922a.
+// RegisterLand is a paid mutator transaction binding the contract method 0xb829c12a.
 //
-// Solidity: function registerLand(uint256 _landId, string _location, string _detailsHash) returns()
-func (_Contract *ContractTransactorSession) RegisterLand(_landId *big.Int, _location string, _detailsHash string) (*types.Transaction, error) {
+// Solidity: function registerLand(string _landId, string _location, string _detailsHash) returns()
+func (_Contract *ContractTransactorSession) RegisterLand(_landId string, _location string, _detailsHash string) (*types.Transaction, error) {
 	return _Contract.Contract.RegisterLand(&_Contract.TransactOpts, _landId, _location, _detailsHash)
 }
 
@@ -841,46 +847,222 @@ func (_Contract *ContractTransactorSession) TransferOwner(newOwner common.Addres
 	return _Contract.Contract.TransferOwner(&_Contract.TransactOpts, newOwner)
 }
 
-// TransferOwnership is a paid mutator transaction binding the contract method 0x70435c99.
+// TransferOwnership is a paid mutator transaction binding the contract method 0xc0e793c2.
 //
-// Solidity: function transferOwnership(uint256 _landId, address _to, uint256 _transactionId) returns()
-func (_Contract *ContractTransactor) TransferOwnership(opts *bind.TransactOpts, _landId *big.Int, _to common.Address, _transactionId *big.Int) (*types.Transaction, error) {
-	return _Contract.contract.Transact(opts, "transferOwnership", _landId, _to, _transactionId)
+// Solidity: function transferOwnership(string _landId, address _to) returns()
+func (_Contract *ContractTransactor) TransferOwnership(opts *bind.TransactOpts, _landId string, _to common.Address) (*types.Transaction, error) {
+	return _Contract.contract.Transact(opts, "transferOwnership", _landId, _to)
 }
 
-// TransferOwnership is a paid mutator transaction binding the contract method 0x70435c99.
+// TransferOwnership is a paid mutator transaction binding the contract method 0xc0e793c2.
 //
-// Solidity: function transferOwnership(uint256 _landId, address _to, uint256 _transactionId) returns()
-func (_Contract *ContractSession) TransferOwnership(_landId *big.Int, _to common.Address, _transactionId *big.Int) (*types.Transaction, error) {
-	return _Contract.Contract.TransferOwnership(&_Contract.TransactOpts, _landId, _to, _transactionId)
+// Solidity: function transferOwnership(string _landId, address _to) returns()
+func (_Contract *ContractSession) TransferOwnership(_landId string, _to common.Address) (*types.Transaction, error) {
+	return _Contract.Contract.TransferOwnership(&_Contract.TransactOpts, _landId, _to)
 }
 
-// TransferOwnership is a paid mutator transaction binding the contract method 0x70435c99.
+// TransferOwnership is a paid mutator transaction binding the contract method 0xc0e793c2.
 //
-// Solidity: function transferOwnership(uint256 _landId, address _to, uint256 _transactionId) returns()
-func (_Contract *ContractTransactorSession) TransferOwnership(_landId *big.Int, _to common.Address, _transactionId *big.Int) (*types.Transaction, error) {
-	return _Contract.Contract.TransferOwnership(&_Contract.TransactOpts, _landId, _to, _transactionId)
+// Solidity: function transferOwnership(string _landId, address _to) returns()
+func (_Contract *ContractTransactorSession) TransferOwnership(_landId string, _to common.Address) (*types.Transaction, error) {
+	return _Contract.Contract.TransferOwnership(&_Contract.TransactOpts, _landId, _to)
 }
 
-// VerifyLand is a paid mutator transaction binding the contract method 0x49695ecc.
+// TransferVerify is a paid mutator transaction binding the contract method 0x91383192.
 //
-// Solidity: function verifyLand(uint256 _landId, string _documentsHash, bool _isVerified) returns()
-func (_Contract *ContractTransactor) VerifyLand(opts *bind.TransactOpts, _landId *big.Int, _documentsHash string, _isVerified bool) (*types.Transaction, error) {
+// Solidity: function transferVerify(string _landId, address _from, address _to, uint256 _transactionId) returns()
+func (_Contract *ContractTransactor) TransferVerify(opts *bind.TransactOpts, _landId string, _from common.Address, _to common.Address, _transactionId *big.Int) (*types.Transaction, error) {
+	return _Contract.contract.Transact(opts, "transferVerify", _landId, _from, _to, _transactionId)
+}
+
+// TransferVerify is a paid mutator transaction binding the contract method 0x91383192.
+//
+// Solidity: function transferVerify(string _landId, address _from, address _to, uint256 _transactionId) returns()
+func (_Contract *ContractSession) TransferVerify(_landId string, _from common.Address, _to common.Address, _transactionId *big.Int) (*types.Transaction, error) {
+	return _Contract.Contract.TransferVerify(&_Contract.TransactOpts, _landId, _from, _to, _transactionId)
+}
+
+// TransferVerify is a paid mutator transaction binding the contract method 0x91383192.
+//
+// Solidity: function transferVerify(string _landId, address _from, address _to, uint256 _transactionId) returns()
+func (_Contract *ContractTransactorSession) TransferVerify(_landId string, _from common.Address, _to common.Address, _transactionId *big.Int) (*types.Transaction, error) {
+	return _Contract.Contract.TransferVerify(&_Contract.TransactOpts, _landId, _from, _to, _transactionId)
+}
+
+// VerifyLand is a paid mutator transaction binding the contract method 0x101dd0eb.
+//
+// Solidity: function verifyLand(string _landId, string _documentsHash, bool _isVerified) returns()
+func (_Contract *ContractTransactor) VerifyLand(opts *bind.TransactOpts, _landId string, _documentsHash string, _isVerified bool) (*types.Transaction, error) {
 	return _Contract.contract.Transact(opts, "verifyLand", _landId, _documentsHash, _isVerified)
 }
 
-// VerifyLand is a paid mutator transaction binding the contract method 0x49695ecc.
+// VerifyLand is a paid mutator transaction binding the contract method 0x101dd0eb.
 //
-// Solidity: function verifyLand(uint256 _landId, string _documentsHash, bool _isVerified) returns()
-func (_Contract *ContractSession) VerifyLand(_landId *big.Int, _documentsHash string, _isVerified bool) (*types.Transaction, error) {
+// Solidity: function verifyLand(string _landId, string _documentsHash, bool _isVerified) returns()
+func (_Contract *ContractSession) VerifyLand(_landId string, _documentsHash string, _isVerified bool) (*types.Transaction, error) {
 	return _Contract.Contract.VerifyLand(&_Contract.TransactOpts, _landId, _documentsHash, _isVerified)
 }
 
-// VerifyLand is a paid mutator transaction binding the contract method 0x49695ecc.
+// VerifyLand is a paid mutator transaction binding the contract method 0x101dd0eb.
 //
-// Solidity: function verifyLand(uint256 _landId, string _documentsHash, bool _isVerified) returns()
-func (_Contract *ContractTransactorSession) VerifyLand(_landId *big.Int, _documentsHash string, _isVerified bool) (*types.Transaction, error) {
+// Solidity: function verifyLand(string _landId, string _documentsHash, bool _isVerified) returns()
+func (_Contract *ContractTransactorSession) VerifyLand(_landId string, _documentsHash string, _isVerified bool) (*types.Transaction, error) {
 	return _Contract.Contract.VerifyLand(&_Contract.TransactOpts, _landId, _documentsHash, _isVerified)
+}
+
+// ContractInitiateTransactionIterator is returned from FilterInitiateTransaction and is used to iterate over the raw logs and unpacked data for InitiateTransaction events raised by the Contract contract.
+type ContractInitiateTransactionIterator struct {
+	Event *ContractInitiateTransaction // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *ContractInitiateTransactionIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(ContractInitiateTransaction)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(ContractInitiateTransaction)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *ContractInitiateTransactionIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *ContractInitiateTransactionIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// ContractInitiateTransaction represents a InitiateTransaction event raised by the Contract contract.
+type ContractInitiateTransaction struct {
+	LandId    common.Hash
+	From      common.Address
+	To        common.Address
+	Timestamp *big.Int
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterInitiateTransaction is a free log retrieval operation binding the contract event 0x5248c259bc895d2c422508ce73ea783fe4bda339c570eaf7f4c4fd5859b54b38.
+//
+// Solidity: event InitiateTransaction(string indexed landId, address indexed from, address to, uint256 timestamp)
+func (_Contract *ContractFilterer) FilterInitiateTransaction(opts *bind.FilterOpts, landId []string, from []common.Address) (*ContractInitiateTransactionIterator, error) {
+
+	var landIdRule []interface{}
+	for _, landIdItem := range landId {
+		landIdRule = append(landIdRule, landIdItem)
+	}
+	var fromRule []interface{}
+	for _, fromItem := range from {
+		fromRule = append(fromRule, fromItem)
+	}
+
+	logs, sub, err := _Contract.contract.FilterLogs(opts, "InitiateTransaction", landIdRule, fromRule)
+	if err != nil {
+		return nil, err
+	}
+	return &ContractInitiateTransactionIterator{contract: _Contract.contract, event: "InitiateTransaction", logs: logs, sub: sub}, nil
+}
+
+// WatchInitiateTransaction is a free log subscription operation binding the contract event 0x5248c259bc895d2c422508ce73ea783fe4bda339c570eaf7f4c4fd5859b54b38.
+//
+// Solidity: event InitiateTransaction(string indexed landId, address indexed from, address to, uint256 timestamp)
+func (_Contract *ContractFilterer) WatchInitiateTransaction(opts *bind.WatchOpts, sink chan<- *ContractInitiateTransaction, landId []string, from []common.Address) (event.Subscription, error) {
+
+	var landIdRule []interface{}
+	for _, landIdItem := range landId {
+		landIdRule = append(landIdRule, landIdItem)
+	}
+	var fromRule []interface{}
+	for _, fromItem := range from {
+		fromRule = append(fromRule, fromItem)
+	}
+
+	logs, sub, err := _Contract.contract.WatchLogs(opts, "InitiateTransaction", landIdRule, fromRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(ContractInitiateTransaction)
+				if err := _Contract.contract.UnpackLog(event, "InitiateTransaction", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseInitiateTransaction is a log parse operation binding the contract event 0x5248c259bc895d2c422508ce73ea783fe4bda339c570eaf7f4c4fd5859b54b38.
+//
+// Solidity: event InitiateTransaction(string indexed landId, address indexed from, address to, uint256 timestamp)
+func (_Contract *ContractFilterer) ParseInitiateTransaction(log types.Log) (*ContractInitiateTransaction, error) {
+	event := new(ContractInitiateTransaction)
+	if err := _Contract.contract.UnpackLog(event, "InitiateTransaction", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
 }
 
 // ContractLandRegisteredIterator is returned from FilterLandRegistered and is used to iterate over the raw logs and unpacked data for LandRegistered events raised by the Contract contract.
@@ -952,16 +1134,16 @@ func (it *ContractLandRegisteredIterator) Close() error {
 
 // ContractLandRegistered represents a LandRegistered event raised by the Contract contract.
 type ContractLandRegistered struct {
-	LandId   *big.Int
+	LandId   common.Hash
 	Owner    common.Address
 	Location string
 	Raw      types.Log // Blockchain specific contextual infos
 }
 
-// FilterLandRegistered is a free log retrieval operation binding the contract event 0x9c4ad74928fec1ee86181680df0e76bf575b79ea2a0347f7ed270884bdd26ad7.
+// FilterLandRegistered is a free log retrieval operation binding the contract event 0x0db565b66bc7b7d853b058610a600e099197798649c0dfa27c11fd7a82ecab71.
 //
-// Solidity: event LandRegistered(uint256 indexed landId, address indexed owner, string location)
-func (_Contract *ContractFilterer) FilterLandRegistered(opts *bind.FilterOpts, landId []*big.Int, owner []common.Address) (*ContractLandRegisteredIterator, error) {
+// Solidity: event LandRegistered(string indexed landId, address indexed owner, string location)
+func (_Contract *ContractFilterer) FilterLandRegistered(opts *bind.FilterOpts, landId []string, owner []common.Address) (*ContractLandRegisteredIterator, error) {
 
 	var landIdRule []interface{}
 	for _, landIdItem := range landId {
@@ -979,10 +1161,10 @@ func (_Contract *ContractFilterer) FilterLandRegistered(opts *bind.FilterOpts, l
 	return &ContractLandRegisteredIterator{contract: _Contract.contract, event: "LandRegistered", logs: logs, sub: sub}, nil
 }
 
-// WatchLandRegistered is a free log subscription operation binding the contract event 0x9c4ad74928fec1ee86181680df0e76bf575b79ea2a0347f7ed270884bdd26ad7.
+// WatchLandRegistered is a free log subscription operation binding the contract event 0x0db565b66bc7b7d853b058610a600e099197798649c0dfa27c11fd7a82ecab71.
 //
-// Solidity: event LandRegistered(uint256 indexed landId, address indexed owner, string location)
-func (_Contract *ContractFilterer) WatchLandRegistered(opts *bind.WatchOpts, sink chan<- *ContractLandRegistered, landId []*big.Int, owner []common.Address) (event.Subscription, error) {
+// Solidity: event LandRegistered(string indexed landId, address indexed owner, string location)
+func (_Contract *ContractFilterer) WatchLandRegistered(opts *bind.WatchOpts, sink chan<- *ContractLandRegistered, landId []string, owner []common.Address) (event.Subscription, error) {
 
 	var landIdRule []interface{}
 	for _, landIdItem := range landId {
@@ -1025,9 +1207,9 @@ func (_Contract *ContractFilterer) WatchLandRegistered(opts *bind.WatchOpts, sin
 	}), nil
 }
 
-// ParseLandRegistered is a log parse operation binding the contract event 0x9c4ad74928fec1ee86181680df0e76bf575b79ea2a0347f7ed270884bdd26ad7.
+// ParseLandRegistered is a log parse operation binding the contract event 0x0db565b66bc7b7d853b058610a600e099197798649c0dfa27c11fd7a82ecab71.
 //
-// Solidity: event LandRegistered(uint256 indexed landId, address indexed owner, string location)
+// Solidity: event LandRegistered(string indexed landId, address indexed owner, string location)
 func (_Contract *ContractFilterer) ParseLandRegistered(log types.Log) (*ContractLandRegistered, error) {
 	event := new(ContractLandRegistered)
 	if err := _Contract.contract.UnpackLog(event, "LandRegistered", log); err != nil {
@@ -1106,17 +1288,17 @@ func (it *ContractLandSurveyingIterator) Close() error {
 
 // ContractLandSurveying represents a LandSurveying event raised by the Contract contract.
 type ContractLandSurveying struct {
-	LandId           *big.Int
+	LandId           common.Hash
 	Area             *big.Int
 	SurveyorsAddress common.Address
 	Timestam         *big.Int
 	Raw              types.Log // Blockchain specific contextual infos
 }
 
-// FilterLandSurveying is a free log retrieval operation binding the contract event 0x9f207f53ad48e112fa882ba14907e3301685086486bac5d73bab867a7c9a3c11.
+// FilterLandSurveying is a free log retrieval operation binding the contract event 0xc200ae8df18b7f538d348a1b0a8fb6b591cabace3b6c1b309e0cec7253093042.
 //
-// Solidity: event LandSurveying(uint256 indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam)
-func (_Contract *ContractFilterer) FilterLandSurveying(opts *bind.FilterOpts, landId []*big.Int, surveyorsAddress []common.Address) (*ContractLandSurveyingIterator, error) {
+// Solidity: event LandSurveying(string indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam)
+func (_Contract *ContractFilterer) FilterLandSurveying(opts *bind.FilterOpts, landId []string, surveyorsAddress []common.Address) (*ContractLandSurveyingIterator, error) {
 
 	var landIdRule []interface{}
 	for _, landIdItem := range landId {
@@ -1135,10 +1317,10 @@ func (_Contract *ContractFilterer) FilterLandSurveying(opts *bind.FilterOpts, la
 	return &ContractLandSurveyingIterator{contract: _Contract.contract, event: "LandSurveying", logs: logs, sub: sub}, nil
 }
 
-// WatchLandSurveying is a free log subscription operation binding the contract event 0x9f207f53ad48e112fa882ba14907e3301685086486bac5d73bab867a7c9a3c11.
+// WatchLandSurveying is a free log subscription operation binding the contract event 0xc200ae8df18b7f538d348a1b0a8fb6b591cabace3b6c1b309e0cec7253093042.
 //
-// Solidity: event LandSurveying(uint256 indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam)
-func (_Contract *ContractFilterer) WatchLandSurveying(opts *bind.WatchOpts, sink chan<- *ContractLandSurveying, landId []*big.Int, surveyorsAddress []common.Address) (event.Subscription, error) {
+// Solidity: event LandSurveying(string indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam)
+func (_Contract *ContractFilterer) WatchLandSurveying(opts *bind.WatchOpts, sink chan<- *ContractLandSurveying, landId []string, surveyorsAddress []common.Address) (event.Subscription, error) {
 
 	var landIdRule []interface{}
 	for _, landIdItem := range landId {
@@ -1182,9 +1364,9 @@ func (_Contract *ContractFilterer) WatchLandSurveying(opts *bind.WatchOpts, sink
 	}), nil
 }
 
-// ParseLandSurveying is a log parse operation binding the contract event 0x9f207f53ad48e112fa882ba14907e3301685086486bac5d73bab867a7c9a3c11.
+// ParseLandSurveying is a log parse operation binding the contract event 0xc200ae8df18b7f538d348a1b0a8fb6b591cabace3b6c1b309e0cec7253093042.
 //
-// Solidity: event LandSurveying(uint256 indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam)
+// Solidity: event LandSurveying(string indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam)
 func (_Contract *ContractFilterer) ParseLandSurveying(log types.Log) (*ContractLandSurveying, error) {
 	event := new(ContractLandSurveying)
 	if err := _Contract.contract.UnpackLog(event, "LandSurveying", log); err != nil {
@@ -1263,7 +1445,7 @@ func (it *ContractLandVerifiedIterator) Close() error {
 
 // ContractLandVerified represents a LandVerified event raised by the Contract contract.
 type ContractLandVerified struct {
-	LandId          *big.Int
+	LandId          common.Hash
 	DetailsHash     string
 	ReportHash      string
 	DocumentsHash   string
@@ -1273,10 +1455,10 @@ type ContractLandVerified struct {
 	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterLandVerified is a free log retrieval operation binding the contract event 0x378e3aa8b6938b8ea84d87fd3355efdb97062e22ca268d202cb08acb23e1f0d9.
+// FilterLandVerified is a free log retrieval operation binding the contract event 0x02c254bec0795f97886c74722bdf7fae93289967a7e3fb099a88c723f17f3955.
 //
-// Solidity: event LandVerified(uint256 indexed landId, string detailsHash, string reportHash, string documentsHash, bool isVerified, address indexed notariesAddress, uint256 timestamp)
-func (_Contract *ContractFilterer) FilterLandVerified(opts *bind.FilterOpts, landId []*big.Int, notariesAddress []common.Address) (*ContractLandVerifiedIterator, error) {
+// Solidity: event LandVerified(string indexed landId, string detailsHash, string reportHash, string documentsHash, bool isVerified, address indexed notariesAddress, uint256 timestamp)
+func (_Contract *ContractFilterer) FilterLandVerified(opts *bind.FilterOpts, landId []string, notariesAddress []common.Address) (*ContractLandVerifiedIterator, error) {
 
 	var landIdRule []interface{}
 	for _, landIdItem := range landId {
@@ -1295,10 +1477,10 @@ func (_Contract *ContractFilterer) FilterLandVerified(opts *bind.FilterOpts, lan
 	return &ContractLandVerifiedIterator{contract: _Contract.contract, event: "LandVerified", logs: logs, sub: sub}, nil
 }
 
-// WatchLandVerified is a free log subscription operation binding the contract event 0x378e3aa8b6938b8ea84d87fd3355efdb97062e22ca268d202cb08acb23e1f0d9.
+// WatchLandVerified is a free log subscription operation binding the contract event 0x02c254bec0795f97886c74722bdf7fae93289967a7e3fb099a88c723f17f3955.
 //
-// Solidity: event LandVerified(uint256 indexed landId, string detailsHash, string reportHash, string documentsHash, bool isVerified, address indexed notariesAddress, uint256 timestamp)
-func (_Contract *ContractFilterer) WatchLandVerified(opts *bind.WatchOpts, sink chan<- *ContractLandVerified, landId []*big.Int, notariesAddress []common.Address) (event.Subscription, error) {
+// Solidity: event LandVerified(string indexed landId, string detailsHash, string reportHash, string documentsHash, bool isVerified, address indexed notariesAddress, uint256 timestamp)
+func (_Contract *ContractFilterer) WatchLandVerified(opts *bind.WatchOpts, sink chan<- *ContractLandVerified, landId []string, notariesAddress []common.Address) (event.Subscription, error) {
 
 	var landIdRule []interface{}
 	for _, landIdItem := range landId {
@@ -1342,9 +1524,9 @@ func (_Contract *ContractFilterer) WatchLandVerified(opts *bind.WatchOpts, sink 
 	}), nil
 }
 
-// ParseLandVerified is a log parse operation binding the contract event 0x378e3aa8b6938b8ea84d87fd3355efdb97062e22ca268d202cb08acb23e1f0d9.
+// ParseLandVerified is a log parse operation binding the contract event 0x02c254bec0795f97886c74722bdf7fae93289967a7e3fb099a88c723f17f3955.
 //
-// Solidity: event LandVerified(uint256 indexed landId, string detailsHash, string reportHash, string documentsHash, bool isVerified, address indexed notariesAddress, uint256 timestamp)
+// Solidity: event LandVerified(string indexed landId, string detailsHash, string reportHash, string documentsHash, bool isVerified, address indexed notariesAddress, uint256 timestamp)
 func (_Contract *ContractFilterer) ParseLandVerified(log types.Log) (*ContractLandVerified, error) {
 	event := new(ContractLandVerified)
 	if err := _Contract.contract.UnpackLog(event, "LandVerified", log); err != nil {
@@ -1577,17 +1759,17 @@ func (it *ContractTransactionRecordedIterator) Close() error {
 // ContractTransactionRecorded represents a TransactionRecorded event raised by the Contract contract.
 type ContractTransactionRecorded struct {
 	TransactionId *big.Int
-	LandId        *big.Int
+	LandId        common.Hash
 	From          common.Address
 	To            common.Address
 	Timestamp     *big.Int
 	Raw           types.Log // Blockchain specific contextual infos
 }
 
-// FilterTransactionRecorded is a free log retrieval operation binding the contract event 0x4bb86a8504e257f90fe72dcaa3a3d0dfb04b72836b57aa6882b7bc2a1b82a4d1.
+// FilterTransactionRecorded is a free log retrieval operation binding the contract event 0xb6bcd7cfdc4168ada92756b190a8bdac9989fd732a43601cccb64665ad20102d.
 //
-// Solidity: event TransactionRecorded(uint256 indexed transactionId, uint256 indexed landId, address indexed from, address to, uint256 timestamp)
-func (_Contract *ContractFilterer) FilterTransactionRecorded(opts *bind.FilterOpts, transactionId []*big.Int, landId []*big.Int, from []common.Address) (*ContractTransactionRecordedIterator, error) {
+// Solidity: event TransactionRecorded(uint256 indexed transactionId, string indexed landId, address indexed from, address to, uint256 timestamp)
+func (_Contract *ContractFilterer) FilterTransactionRecorded(opts *bind.FilterOpts, transactionId []*big.Int, landId []string, from []common.Address) (*ContractTransactionRecordedIterator, error) {
 
 	var transactionIdRule []interface{}
 	for _, transactionIdItem := range transactionId {
@@ -1609,10 +1791,10 @@ func (_Contract *ContractFilterer) FilterTransactionRecorded(opts *bind.FilterOp
 	return &ContractTransactionRecordedIterator{contract: _Contract.contract, event: "TransactionRecorded", logs: logs, sub: sub}, nil
 }
 
-// WatchTransactionRecorded is a free log subscription operation binding the contract event 0x4bb86a8504e257f90fe72dcaa3a3d0dfb04b72836b57aa6882b7bc2a1b82a4d1.
+// WatchTransactionRecorded is a free log subscription operation binding the contract event 0xb6bcd7cfdc4168ada92756b190a8bdac9989fd732a43601cccb64665ad20102d.
 //
-// Solidity: event TransactionRecorded(uint256 indexed transactionId, uint256 indexed landId, address indexed from, address to, uint256 timestamp)
-func (_Contract *ContractFilterer) WatchTransactionRecorded(opts *bind.WatchOpts, sink chan<- *ContractTransactionRecorded, transactionId []*big.Int, landId []*big.Int, from []common.Address) (event.Subscription, error) {
+// Solidity: event TransactionRecorded(uint256 indexed transactionId, string indexed landId, address indexed from, address to, uint256 timestamp)
+func (_Contract *ContractFilterer) WatchTransactionRecorded(opts *bind.WatchOpts, sink chan<- *ContractTransactionRecorded, transactionId []*big.Int, landId []string, from []common.Address) (event.Subscription, error) {
 
 	var transactionIdRule []interface{}
 	for _, transactionIdItem := range transactionId {
@@ -1659,9 +1841,9 @@ func (_Contract *ContractFilterer) WatchTransactionRecorded(opts *bind.WatchOpts
 	}), nil
 }
 
-// ParseTransactionRecorded is a log parse operation binding the contract event 0x4bb86a8504e257f90fe72dcaa3a3d0dfb04b72836b57aa6882b7bc2a1b82a4d1.
+// ParseTransactionRecorded is a log parse operation binding the contract event 0xb6bcd7cfdc4168ada92756b190a8bdac9989fd732a43601cccb64665ad20102d.
 //
-// Solidity: event TransactionRecorded(uint256 indexed transactionId, uint256 indexed landId, address indexed from, address to, uint256 timestamp)
+// Solidity: event TransactionRecorded(uint256 indexed transactionId, string indexed landId, address indexed from, address to, uint256 timestamp)
 func (_Contract *ContractFilterer) ParseTransactionRecorded(log types.Log) (*ContractTransactionRecorded, error) {
 	event := new(ContractTransactionRecorded)
 	if err := _Contract.contract.UnpackLog(event, "TransactionRecorded", log); err != nil {

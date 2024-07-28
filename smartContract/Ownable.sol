@@ -28,6 +28,11 @@ contract Ownable {
     require(msg.sender == owner);
     _;
   }
+  
+  modifier onlyOracle() {
+    require(msg.sender == oracle);
+    _;
+  }
 
 
   /**

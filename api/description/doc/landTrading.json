@@ -559,8 +559,7 @@
           "format": "int32"
         },
         "uuid": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "msg": {
           "type": "string"
@@ -644,8 +643,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "location": {
           "type": "string"
@@ -723,8 +721,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "area": {
           "type": "string"
@@ -762,8 +759,7 @@
       "type": "object",
       "properties": {
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "from": {
           "type": "string"
@@ -826,8 +822,7 @@
         "landIdList": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           }
         },
         "transactionIdList": {
@@ -865,8 +860,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "isVerify": {
           "type": "boolean",
@@ -921,8 +915,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         }
       },
       "title": "generateProofOfOwnershipReq",
@@ -959,8 +952,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         }
       },
       "title": "getLandTransactionHistoryReq",
@@ -1035,8 +1027,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         }
       },
       "title": "queryLandReq",
@@ -1106,8 +1097,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "address_to": {
           "type": "string"
@@ -1149,8 +1139,7 @@
           "type": "string"
         },
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         }
       },
       "title": "verifyFileHashReq",
@@ -1184,8 +1173,7 @@
       "type": "object",
       "properties": {
         "landId": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "proof": {
           "type": "string"

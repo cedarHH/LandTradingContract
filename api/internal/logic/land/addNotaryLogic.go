@@ -29,7 +29,7 @@ func (l *AddNotaryLogic) AddNotary(req *types.AddNotaryReq) (
 	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.SenderKey)
 	tx, err := l.svcCtx.Conn.AddNotary(auth, common.HexToAddress(req.NotaryAddress))
 	if err != nil {
-		log.Fatalf("Failed to call AddNotary: %v", err)
+		log.Fatalf("Failed to call add notary: %v", err)
 	}
 
 	log.Printf("Transaction hash: %s", tx.Hash().Hex())

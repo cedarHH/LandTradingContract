@@ -23,8 +23,8 @@ func NewGenerateProofOfOwnershipLogic(ctx context.Context, svcCtx *svc.ServiceCo
 	}
 }
 
-func (l *GenerateProofOfOwnershipLogic) GenerateProofOfOwnership(req *types.GenerateProofOfOwnershipReq) (resp *types.GenerateProofOfOwnershipResp, err error) {
-	// todo: add your logic here and delete this line
+func (l *GenerateProofOfOwnershipLogic) GenerateProofOfOwnership(
+	req *types.GenerateProofOfOwnershipReq) (resp *types.GenerateProofOfOwnershipResp, err error) {
 
 	return
 }

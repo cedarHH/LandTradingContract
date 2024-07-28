@@ -25,7 +25,7 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["addSurveyor"]
+          "path": ["api/land/addSurveyor"]
         },
         "description": "Add surveyor"
       },
@@ -51,7 +51,7 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["addNotary"]
+          "path": ["api/land/addNotary"]
         },
         "description": "Add notary"
       },
@@ -70,14 +70,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"userAddress\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"userAddress\": \"\",\n  \"userName\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/registerUser",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["registerUser"]
+          "path": ["api/land/registerUser"]
         },
         "description": "Register user"
       },
@@ -103,7 +103,7 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["transferContractOwnership"]
+          "path": ["api/land/transferContractOwnership"]
         },
         "description": "Transfer contract ownership"
       },
@@ -125,7 +125,7 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["getUuid"]
+          "path": ["api/land/getUuid"]
         },
         "description": "Get UUID"
       },
@@ -144,14 +144,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"location\": \"\",\n  \"details\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": \"\",\n  \"location\": \"\",\n  \"details\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/registerLand",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["registerLand"]
+          "path": ["api/land/registerLand"]
         },
         "description": "Register land"
       },
@@ -170,14 +170,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"area\": \"\",\n  \"report\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": \"\",\n  \"area\": \"\",\n  \"report\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/surveyLand",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["surveyLand"]
+          "path": ["api/land/surveyLand"]
         },
         "description": "Survey land"
       },
@@ -203,7 +203,7 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["GetPresignedUrl"]
+          "path": ["api/land/GetPresignedUrl"]
         },
         "description": "Get presigned URL"
       },
@@ -222,14 +222,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"isVerify\": false,\n  \"document\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": \"\",\n  \"isVerify\": false,\n  \"document\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/verifyLand",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["verifyLand"]
+          "path": ["api/land/verifyLand"]
         },
         "description": "Verify land"
       },
@@ -255,7 +255,7 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["queryUserInfo"]
+          "path": ["api/land/queryUserInfo"]
         },
         "description": "Query user info"
       },
@@ -274,14 +274,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/queryLand",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["queryLand"]
+          "path": ["api/land/queryLand"]
         },
         "description": "Query land"
       },
@@ -300,14 +300,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": 0,\n  \"address_to\": \"\",\n  \"TransactionId\": 0\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": \"\",\n  \"address_to\": \"\",\n  \"TransactionId\": 0\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/transferOwnership",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["transferOwnership"]
+          "path": ["api/land/transferOwnership"]
         },
         "description": "Transfer ownership"
       },
@@ -333,7 +333,7 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["getTransactionDetails"]
+          "path": ["api/land/getTransactionDetails"]
         },
         "description": "Get transaction details"
       },
@@ -352,14 +352,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": 0\n}"
+          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/getLandTransactionHistory",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["getLandTransactionHistory"]
+          "path": ["api/land/getLandTransactionHistory"]
         },
         "description": "Get land transaction history"
       },
@@ -378,14 +378,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": 0\n}"
+          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/verifyFileHash",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["verifyFileHash"]
+          "path": ["api/land/verifyFileHash"]
         },
         "description": "Verify file hash"
       },
@@ -404,14 +404,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"owner\": \"\",\n  \"landId\": 0\n}"
+          "raw": "{\n  \"owner\": \"\",\n  \"landId\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/generateProofOfOwnership",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["generateProofOfOwnership"]
+          "path": ["api/land/generateProofOfOwnership"]
         },
         "description": "Generate proof of ownership"
       },
@@ -430,14 +430,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"landId\": 0,\n  \"proof\": \"\"\n}"
+          "raw": "{\n  \"landId\": \"\",\n  \"proof\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/verifyProofOfOwnership",
           "protocol": "http",
           "host": ["localhost"],
           "port": "8888",
-          "path": ["verifyProofOfOwnership"]
+          "path": ["api/land/verifyProofOfOwnership"]
         },
         "description": "Verify proof of ownership"
       },

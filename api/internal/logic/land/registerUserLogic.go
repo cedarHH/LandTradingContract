@@ -2,6 +2,8 @@ package land
 
 import (
 	"context"
+	"github.com/ethereum/go-ethereum/common"
+	"log"
 
 	"github.com/cedarHH/LandTradingContract/api/internal/svc"
 	"github.com/cedarHH/LandTradingContract/api/internal/types"
@@ -23,8 +25,18 @@ func NewRegisterUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Regi
 	}
 }
 
-func (l *RegisterUserLogic) RegisterUser(req *types.RegisterUserReq) (resp *types.RegisterUserResp, err error) {
-	// todo: add your logic here and delete this line
+func (l *RegisterUserLogic) RegisterUser(req *types.RegisterUserReq) (
+	resp *types.RegisterUserResp, err error) {
 
-	return
+	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.Senderkey)
+	userAddress := common.HexToAddress(req.UserAddress)
+	tx, err := l.svcCtx.Conn.RegisterUser(auth, userAddress, req.UserName)
+	if err != nil {
+		log.Fatalf("Failed to call register user: %v", err)
+	}
+	log.Printf("Transaction hash: %s", tx.Hash().Hex())
+	return &types.RegisterUserResp{
+		Code: 0,
+		Msg:  "Success",
+	}, nil
 }

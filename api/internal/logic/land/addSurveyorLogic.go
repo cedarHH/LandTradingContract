@@ -2,6 +2,8 @@ package land
 
 import (
 	"context"
+	"github.com/ethereum/go-ethereum/common"
+	"log"
 
 	"github.com/cedarHH/LandTradingContract/api/internal/svc"
 	"github.com/cedarHH/LandTradingContract/api/internal/types"
@@ -23,8 +25,18 @@ func NewAddSurveyorLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AddSu
 	}
 }
 
-func (l *AddSurveyorLogic) AddSurveyor(req *types.AddSurveyorReq) (resp *types.AddSurveyorResp, err error) {
-	// todo: add your logic here and delete this line
+func (l *AddSurveyorLogic) AddSurveyor(req *types.AddSurveyorReq) (
+	resp *types.AddSurveyorResp, err error) {
 
-	return
+	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.SenderKey)
+	tx, err := l.svcCtx.Conn.AddSurveyor(auth, common.HexToAddress(req.SurveyorAddress))
+	if err != nil {
+		log.Fatalf("Failed to call add surveyor: %v", err)
+	}
+
+	log.Printf("Transaction hash: %s", tx.Hash().Hex())
+	return &types.AddSurveyorResp{
+		Code: 0,
+		Msg:  "add surveyor success",
+	}, nil
 }

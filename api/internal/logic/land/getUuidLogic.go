@@ -2,9 +2,9 @@ package land
 
 import (
 	"context"
-
 	"github.com/cedarHH/LandTradingContract/api/internal/svc"
 	"github.com/cedarHH/LandTradingContract/api/internal/types"
+	"github.com/google/uuid"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -24,7 +24,10 @@ func NewGetUuidLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetUuidLo
 }
 
 func (l *GetUuidLogic) GetUuid() (resp *types.GetUuidResp, err error) {
-	// todo: add your logic here and delete this line
 
-	return
+	return &types.GetUuidResp{
+		Code: 0,
+		Uuid: uuid.New().String(),
+		Msg:  "",
+	}, nil
 }

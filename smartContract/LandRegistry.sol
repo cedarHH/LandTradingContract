@@ -10,7 +10,7 @@ contract LandRegistry is Ownable{
     // 存储注册用户，使用映射以用户地址为键，注册状态为值
     mapping(address => User) public userMapping;
     // 存储土地信息，使用映射以土地ID为键，土地结构为值
-    mapping(uint256 => Land) public lands;
+    mapping(string => Land) public lands;
     
     mapping(address => bool) public surveyors;
     mapping(address => bool) public notaries;
@@ -19,7 +19,7 @@ contract LandRegistry is Ownable{
     uint256 landCount = 0;
     struct User {
         string username; // 用户名
-        uint256[] landIdList; // 拥有土地id列表
+        string[] landIdList; // 拥有土地id列表
         uint256[] transactionIdList; // 交易列表
         bool isVaild; // 用户状态
     }
@@ -40,12 +40,12 @@ contract LandRegistry is Ownable{
     // 事件声明，用于触发事件
     
     // 注册土地事件
-    event LandRegistered(uint256 indexed landId, address indexed owner, string location);
+    event LandRegistered(string indexed landId, address indexed owner, string location);
     // 公证员--土地校验事件
-    event LandVerified(uint256 indexed landId, string  detailsHash, string reportHash, string  documentsHash, 
+    event LandVerified(string indexed landId, string  detailsHash, string reportHash, string  documentsHash,
                        bool isVerified, address indexed notariesAddress, uint256 timestamp);
     // 测量员 -- 土地面积测量事件
-    event LandSurveying(uint256 indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam);
+    event LandSurveying(string indexed landId, uint256 area, address indexed surveyorsAddress, uint256 timestam);
 
 
     // 只有注册用户可以执行的修饰符
@@ -75,12 +75,12 @@ contract LandRegistry is Ownable{
     // 注册新用户，只有合约所有者可以调用
     function registerUser(address _userAddress, string memory _userName) public onlyOwner {
         require(!userMapping[_userAddress].isVaild, "user is exists");
-        userMapping[_userAddress] = User(_userName, new uint256[](0),new uint256[](0), true);
+        userMapping[_userAddress] = User(_userName, new string[](0),new uint256[](0), true);
     }
 
 
     // 注册土地，只有注册用户可以调用
-    function registerLand(uint256 _landId, string memory _location, string memory _detailsHash) public onlyRegistered {
+    function registerLand(string memory _landId, string memory _location, string memory _detailsHash) public onlyRegistered {
         require(!lands[_landId].isVaild, "land is exists");
         lands[_landId] = Land(msg.sender, _location, 0, false, "", "", "", true);
         lands[_landId].detailsHash = _detailsHash;
@@ -91,7 +91,7 @@ contract LandRegistry is Ownable{
 
 
     // 测量人员测量土地后传入土地面积
-    function LandSurveyingArea(uint256 _landId, uint256 _area, string memory _reportHash) public onlySurveyors {
+    function LandSurveyingArea(string memory _landId, uint256 _area, string memory _reportHash) public onlySurveyors {
         require(lands[_landId].isVaild, "land is not exists");
         require(msg.sender == oracle, 'Only oracle can call');
         lands[_landId].area = _area;
@@ -101,7 +101,7 @@ contract LandRegistry is Ownable{
 
 
     // 土地公证人员校验土地信息
-    function verifyLand(uint256 _landId, string memory _documentsHash, bool _isVerified)
+    function verifyLand(string memory _landId, string memory _documentsHash, bool _isVerified)
     public onlyNotaries {
         require(lands[_landId].isVaild, "land is not exists");
         require(msg.sender == oracle, 'Only oracle can call');
@@ -111,7 +111,7 @@ contract LandRegistry is Ownable{
     }
 
     // 查询土地信息，任何人都可以调用
-    function queryLand(uint256 landId) public view returns (Land memory) {
+    function queryLand(string memory landId) public view returns (Land memory) {
         require(lands[landId].isVerified, "land is not verified");
         return lands[landId];
     }
