@@ -132,6 +132,28 @@
       "response": []
     },
     {
+      "name": "/getTransactionId",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8888/api/land/getTransactionId",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api/land/getTransactionId"]
+        },
+        "description": "Get transaction ID"
+      },
+      "response": []
+    },
+    {
       "name": "/registerLand",
       "request": {
         "method": "POST",
@@ -170,7 +192,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n \"landId\": \"\",\n  \"area\": 0,\n  \"report\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n \"landId\": \"\",\n  \"area\": 0,\n  \"report\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/surveyLand",
@@ -222,7 +244,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"\",\n  \"landId\": \"\",\n  \"isVerify\": false,\n  \"document\": \"\"\n}"
+          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": \"\",\n  \"isVerify\": false,\n  \"document\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/verifyLand",
@@ -248,7 +270,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\"\n}"
+          "raw": "{\n  \"Address\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/queryUserInfo",
@@ -274,7 +296,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"landId\": \"\"\n}"
+          "raw": "{\n  \"landId\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/queryLand",
@@ -314,6 +336,32 @@
       "response": []
     },
     {
+      "name": "/transferVerify",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"transactionId\": 0,\n  \"landId\": \"\",\n  \"addressFrom\": \"\",\n  \"addressTo\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/land/transferVerify",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["api/land/transferVerify"]
+        },
+        "description": "verify transaction"
+      },
+      "response": []
+    },
+    {
       "name": "/getTransactionDetails",
       "request": {
         "method": "POST",
@@ -326,7 +374,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderkey\": \"\",\n  \"TransactionId\": 0\n}"
+          "raw": "{\n  \"TransactionId\": 0\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/getTransactionDetails",
@@ -352,7 +400,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": \"\"\n}"
+          "raw": "{\n  \"landId\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/getLandTransactionHistory",
@@ -378,7 +426,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"senderKey\": \"\",\n  \"landId\": \"\"\n}"
+          "raw": "{\n  \"landId\": \"\"\n}"
         },
         "url": {
           "raw": "http://localhost:8888/api/land/verifyFileHash",

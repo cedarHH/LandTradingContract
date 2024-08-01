@@ -31,6 +31,12 @@ type GetPresignedUrlResp struct {
 	Msg  string `json:"msg"`
 }
 
+type GetTransactionIdResp struct {
+	Code int    `json:"code"`
+	Data int64  `json:"Data"`
+	Msg  string `json:"msg"`
+}
+
 type GetUuidResp struct {
 	Code int    `json:"code"`
 	Uuid string `json:"uuid"`
@@ -45,14 +51,6 @@ type LandDetail struct {
 	Details    string `json:"details"`
 	Report     string `json:"report"`
 	Document   string `json:"document"`
-}
-
-type LandHistory struct {
-	Owner      string `json:"owner"`
-	Location   string `json:"location"`
-	Area       int64  `json:"area"`
-	IsVerified bool   `json:"isVerified"`
-	IsVaild    bool   `json:"isVaild"`
 }
 
 type RegisterLandReq struct {
@@ -79,9 +77,10 @@ type RegisterUserResp struct {
 }
 
 type SurveyLandReq struct {
-	LandId string `json:"landId"`
-	Area   int64  `json:"area"`
-	Report string `json:"report"`
+	Senderkey string `json:"senderkey"`
+	LandId    string `json:"landId"`
+	Area      int64  `json:"area"`
+	Report    string `json:"report"`
 }
 
 type SurveyLandResp struct {
@@ -106,6 +105,18 @@ type TransferContractOwnershipResp struct {
 	Msg  string `json:"msg"`
 }
 
+type TransferVerifyReq struct {
+	TransactionId uint64 `json:"transactionId"`
+	LandId        string `json:"landId"`
+	Address_from  string `json:"addressFrom"`
+	Address_to    string `json:"addressTo"`
+}
+
+type TransferVerifyResp struct {
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
+}
+
 type UserDetail struct {
 	Username          string   `json:"username"`
 	LandIdList        []string `json:"landIdList"`
@@ -117,9 +128,10 @@ type VerifyData struct {
 }
 
 type VerifyLandReq struct {
-	LandId   string `json:"landId"`
-	IsVerify bool   `json:"isVerify"`
-	Document string `json:"document"`
+	Senderkey string `json:"senderkey"`
+	LandId    string `json:"landId"`
+	IsVerify  bool   `json:"isVerify"`
+	Document  string `json:"document"`
 }
 
 type VerifyLandResp struct {
@@ -143,18 +155,16 @@ type GenerateProofOfOwnershipResp struct {
 }
 
 type GetLandTransactionHistoryReq struct {
-	SenderKey string `json:"senderKey"`
-	LandId    string `json:"landId"`
+	LandId string `json:"landId"`
 }
 
 type GetLandTransactionHistoryResp struct {
-	Code int         `json:"code"`
-	Data LandHistory `json:"data"`
-	Msg  string      `json:"msg"`
+	Code int     `json:"code"`
+	Data []int64 `json:"data"`
+	Msg  string  `json:"msg"`
 }
 
 type GetTransactionDetailsReq struct {
-	Senderkey     string `json:"senderkey"`
 	TransactionId uint64 `json:"TransactionId"`
 }
 
@@ -165,8 +175,7 @@ type GetTransactionDetailsResp struct {
 }
 
 type QueryLandReq struct {
-	Senderkey string `json:"senderkey"`
-	LandId    string `json:"landId"`
+	LandId string `json:"landId"`
 }
 
 type QueryLandResp struct {
@@ -176,7 +185,7 @@ type QueryLandResp struct {
 }
 
 type QueryUserInfoReq struct {
-	Senderkey string `json:"senderkey"`
+	Address string `json:"Address"`
 }
 
 type QueryUserInfoResp struct {
@@ -186,10 +195,9 @@ type QueryUserInfoResp struct {
 }
 
 type TransferOwnershipReq struct {
-	Senderkey     string `json:"senderkey"`
-	LandId        string `json:"landId"`
-	Address_to    string `json:"address_to"`
-	TransactionId uint64 `json:"TransactionId"`
+	Senderkey  string `json:"senderkey"`
+	LandId     string `json:"landId"`
+	Address_to string `json:"address_to"`
 }
 
 type TransferOwnershipResp struct {
@@ -198,8 +206,7 @@ type TransferOwnershipResp struct {
 }
 
 type VerifyFileHashReq struct {
-	SenderKey string `json:"senderKey"`
-	LandId    string `json:"landId"`
+	LandId string `json:"landId"`
 }
 
 type VerifyFileHashResp struct {

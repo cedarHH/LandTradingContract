@@ -55,6 +55,9 @@ service land {
 	@handler transferOwnership
 	post /transferOwnership (transferOwnershipReq) returns (transferOwnershipResp)
 
+	@handler transferVerify
+	post /transferVerify (TransferVerifyReq) returns (TransferVerifyResp)
+
 	@handler getTransactionDetails
 	post /getTransactionDetails (getTransactionDetailsReq) returns (getTransactionDetailsResp)
 
@@ -69,5 +72,8 @@ service land {
 
 	@handler verifyProofOfOwnership
 	post /verifyProofOfOwnership (verifyProofOfOwnershipReq) returns (verifyProofOfOwnershipResp)
+
+	@handler getTransactionId
+	get /getTransactionId returns (GetTransactionIdResp)
 }
 

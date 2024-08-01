@@ -44,6 +44,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: land.GetTransactionDetailsHandler(serverCtx),
 			},
 			{
+				Method:  http.MethodGet,
+				Path:    "/getTransactionId",
+				Handler: land.GetTransactionIdHandler(serverCtx),
+			},
+			{
 				Method:  http.MethodPost,
 				Path:    "/getUuid",
 				Handler: land.GetUuidHandler(serverCtx),
@@ -82,6 +87,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Method:  http.MethodPost,
 				Path:    "/transferOwnership",
 				Handler: land.TransferOwnershipHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/transferVerify",
+				Handler: land.TransferVerifyHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,

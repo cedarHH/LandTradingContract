@@ -37,12 +37,19 @@ func (l *SurveyLandLogic) SurveyLand(
 
 	fileHash, err := tool.ComputeFileHash(download)
 
-	auth := l.svcCtx.AccountAuth.GetAccountAuth(l.svcCtx.OracleKey)
+	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.Senderkey)
 	tx, err := l.svcCtx.Conn.LandSurveyingArea(auth, req.LandId, big.NewInt(req.Area), fileHash)
 	if err != nil {
 		return nil, fmt.Errorf("failed to call landSurveyingArea: %v", err)
 	}
 	log.Printf("Transaction hash: %s", tx.Hash().Hex())
+
+	updates := map[string]interface{}{}
+	updates["report"] = req.Report
+	err = l.svcCtx.LandModel.UpdateAttributes(l.ctx, req.LandId, updates)
+	if err != nil {
+		return nil, fmt.Errorf("failed to update attributes: %v", err)
+	}
 
 	return &types.SurveyLandResp{
 		Code: 0,

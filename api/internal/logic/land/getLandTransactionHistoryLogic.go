@@ -2,10 +2,9 @@ package land
 
 import (
 	"context"
-
 	"github.com/cedarHH/LandTradingContract/api/internal/svc"
 	"github.com/cedarHH/LandTradingContract/api/internal/types"
-
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -23,8 +22,25 @@ func NewGetLandTransactionHistoryLogic(ctx context.Context, svcCtx *svc.ServiceC
 	}
 }
 
-func (l *GetLandTransactionHistoryLogic) GetLandTransactionHistory(req *types.GetLandTransactionHistoryReq) (resp *types.GetLandTransactionHistoryResp, err error) {
-	// todo: add your logic here and delete this line
+func (l *GetLandTransactionHistoryLogic) GetLandTransactionHistory(
+	req *types.GetLandTransactionHistoryReq) (resp *types.GetLandTransactionHistoryResp, err error) {
 
-	return
+	history, err := l.svcCtx.Conn.GetLandTransactionHistory(&bind.CallOpts{}, req.LandId)
+	if err != nil {
+		return &types.GetLandTransactionHistoryResp{
+			Code: 503,
+			Data: []int64{},
+			Msg:  "error",
+		}, nil
+	}
+
+	int64s := make([]int64, len(history))
+	for i, bigInt := range history {
+		int64s[i] = bigInt.Int64()
+	}
+	return &types.GetLandTransactionHistoryResp{
+		Code: 0,
+		Data: int64s,
+		Msg:  "",
+	}, nil
 }

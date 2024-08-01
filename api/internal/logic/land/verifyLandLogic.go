@@ -35,12 +35,19 @@ func (l *VerifyLandLogic) VerifyLand(
 
 	fileHash, err := tool.ComputeFileHash(download)
 
-	auth := l.svcCtx.AccountAuth.GetAccountAuth(l.svcCtx.OracleKey)
+	auth := l.svcCtx.AccountAuth.GetAccountAuth(req.Senderkey)
 	tx, err := l.svcCtx.Conn.VerifyLand(auth, req.LandId, fileHash, req.IsVerify)
 	if err != nil {
 		return nil, fmt.Errorf("failed to call landSurveyingArea: %v", err)
 	}
 	log.Printf("Transaction hash: %s", tx.Hash().Hex())
+
+	updates := map[string]interface{}{}
+	updates["document"] = req.Document
+	err = l.svcCtx.LandModel.UpdateAttributes(l.ctx, req.LandId, updates)
+	if err != nil {
+		return nil, fmt.Errorf("failed to update attributes: %v", err)
+	}
 
 	return &types.VerifyLandResp{
 		Code: 0,

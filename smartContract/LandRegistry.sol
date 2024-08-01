@@ -84,7 +84,6 @@ contract LandRegistry is Ownable{
 
     function LandSurveyingArea(string memory _landId, uint256 _area, string memory _reportHash) public onlySurveyors {
         require(lands[_landId].isVaild, "land is not exists");
-        require(msg.sender == oracle, 'Only oracle can call');
         lands[_landId].area = _area;
         lands[_landId].reportHash = _reportHash;
         emit LandSurveying(_landId, _area, msg.sender, block.timestamp);
@@ -94,7 +93,6 @@ contract LandRegistry is Ownable{
     function verifyLand(string memory _landId, string memory _documentsHash, bool _isVerified)
     public onlyNotaries {
         require(lands[_landId].isVaild, "land is not exists");
-        require(msg.sender == oracle, 'Only oracle can call');
         lands[_landId].documentsHash = _documentsHash;
         lands[_landId].isVerified = _isVerified;
         emit LandVerified(_landId, lands[_landId].detailsHash,lands[_landId].reportHash,_documentsHash,_isVerified, msg.sender, block.timestamp);
